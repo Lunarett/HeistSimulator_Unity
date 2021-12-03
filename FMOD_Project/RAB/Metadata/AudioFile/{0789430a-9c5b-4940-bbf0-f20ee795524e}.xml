@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{0789430a-9c5b-4940-bbf0-f20ee795524e}">
+		<property name="assetPath">
+			<value>Weapons/AWCK AR AK 47 Close 03.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>45.356666666666669</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7f414c65-4c33-4bc6-aab1-d73b2a75d34e}</destination>
+		</relationship>
+	</object>
+</objects>

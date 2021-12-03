@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{a014bd8b-9360-48da-94aa-c3e2c56c3270}">
+		<property name="assetPath">
+			<value>Assets/Weapons/glock-pistol-foley-plastic-holser-draw-3.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.24266666666666667</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7f414c65-4c33-4bc6-aab1-d73b2a75d34e}</destination>
+		</relationship>
+	</object>
+</objects>

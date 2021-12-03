@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{a9747a64-75fd-4c19-9b13-038cb99fb5b1}">
+		<property name="assetPath">
+			<value>Weapons/AK47_end_05.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>5.5432653061224491</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7f414c65-4c33-4bc6-aab1-d73b2a75d34e}</destination>
+		</relationship>
+	</object>
+</objects>

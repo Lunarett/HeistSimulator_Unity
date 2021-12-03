@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{7c66d230-7a1a-440e-a8a1-c426575d3561}">
+		<property name="assetPath">
+			<value>zapsplat_foley_bag_rucksack_set_down_carpet_002_36930.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.67200000000000004</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7f414c65-4c33-4bc6-aab1-d73b2a75d34e}</destination>
+		</relationship>
+	</object>
+</objects>

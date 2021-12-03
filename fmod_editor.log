@@ -1,0 +1,735 @@
+[LOG] System::create                           : Header version = 2.00.09. Current version = 2.00.09.
+[LOG] Manager::init                            : maxchannels = 256 studioflags = 00000006 flags 00000000 extradriverdata 0000000000000000.
+[LOG] SystemI::init                            : Initialize version=20009 (109255), maxchannels=256, flags=0x00020000
+[LOG] SystemI::setOutputInternal               : Setting output to 'FMOD WASAPI Output'
+[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEX): wFormatTag=0xFFFE, nChannels=2, nSamplesPerSec=48000, nAvgBytesPerSec=384000, nBlockAlign=8, wBitsPerSample=32, cbSize=22.
+[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEXTENSIBLE): wValidBitsPerSample=32, dwChannelMask=0x00000003, SubFormat=00000003-0000-0010-8000-00AA00389B71.
+[LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
+[LOG] Thread::initThread                       : Init FMOD stream thread. Priority: 2, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
+[LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
+[LOG] AsyncManager::init                       : manager 000001D0CFDBA1F8 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : done
+[LOG] PlaybackSystem::init                     : 
+[LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Priority: 0, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
+[LOG] PlaybackSystem::init                     : done
+[LOG] Thread::initThread                       : Init FMOD Studio bank load thread. Priority: 0, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
+[LOG] Manager::init                            : done.
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] SystemI::createSound                     : filename = FMOD_Project\RAB\Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000001D0AD6F1088 : node = 000001D0D29DFAB0
+[LOG] SystemI::createSound                     : add node to async list : head = 000001D18AA7E438.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D0AD6F1088
+[LOG] SystemI::createSound                     : filename = FMOD_Project\RAB\Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSoundInternal             :     Create name='FMOD_Project\RAB\Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSound                     :     setdata soundi = 000001D0AD6F1748 : node = 000001D0D2BCAFD0
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 9385344
+[LOG] SystemI::createSound                     :     add node to async list : head = 000001D18AA7E438.  list count = 0
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 93632
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSound                     :     filename = FMOD_Project\RAB\Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001D0D29DFBC0
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSound                     :     setdata soundi = 000001D0AD6F1238 : node = 000001D0D2BCA990
+[LOG] SystemI::createSound                     :     add node to async list : head = 000001D18AA7E438.  list count = 1
+[LOG] SystemI::createSound                     :     filename = FMOD_Project\RAB\Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 000001D11BD9DB18 : node = 000001D0D2BCAC10
+[LOG] SystemI::createSound                     :     add node to async list : head = 000001D18AA7E438.  list count = 2
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Bass01', format=2, channels=2, frequency=48000, lengthbytes=94144, lengthpcm=461399, pcmblocksize=0, loopstart=0, loopend=460798, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.612549.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D0AD6F1088
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D0AD6F1748
+[LOG] SystemI::createSoundInternal             :     Create name='FMOD_Project\RAB\Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 9385344
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 93632
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001D0D2BCB0E0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Drone', format=2, channels=2, frequency=48000, lengthbytes=185120, lengthpcm=828000, pcmblocksize=0, loopstart=0, loopend=460799, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.768707.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D0AD6F1748
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D0AD6F1238
+[LOG] SystemI::createSoundInternal             :     Create name='FMOD_Project\RAB\Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 9385344
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 93632
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001D0D2BCAAA0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Synth', format=2, channels=2, frequency=48000, lengthbytes=192224, lengthpcm=805800, pcmblocksize=0, loopstart=0, loopend=460799, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.330536.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D0AD6F1238
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D11BD9DB18
+[LOG] SystemI::createSoundInternal             :     Create name='FMOD_Project\RAB\Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 9385344
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 93632
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001D0D2BCAD20
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Kick', format=2, channels=2, frequency=48000, lengthbytes=62528, lengthpcm=461100, pcmblocksize=0, loopstart=0, loopend=460799, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.707062.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D11BD9DB18
+[LOG] SoundI::getSubSound                      : sound 000001D0AD6F1088.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      : starting non blocking seek and setting sound to not ready state
+[LOG] SoundI::getSubSound                      : finished preparing nonblocking getSubSound seek
+[LOG] SoundI::getSubSound                      : sound 000001D0AD6F1748.  Subsound index 0 / 1
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D0AC7C7758
+[LOG] AsyncThread::threadFunc                  :     done setposition
+[LOG] SoundI::getSubSound                      : starting non blocking seek and setting sound to not ready state
+[LOG] SoundI::getSubSound                      :     finished preparing nonblocking getSubSound seek
+[LOG] SoundI::getSubSound                      :     sound 000001D0AD6F1238.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      :     starting non blocking seek and setting sound to not ready state
+[LOG] SoundI::getSubSound                      :     finished preparing nonblocking getSubSound seek
+[LOG] SoundI::getSubSound                      :     sound 000001D11BD9DB18.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      :     starting non blocking seek and setting sound to not ready state
+[LOG] SoundI::getSubSound                      :     finished preparing nonblocking getSubSound seek
+[LOG] AsyncThread::threadFunc                  :     done flush
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D0AC7C7758
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D0AC7C7098
+[LOG] AsyncThread::threadFunc                  :     done setposition
+[LOG] AsyncThread::threadFunc                  :     done flush
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D0AC7C7098
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D0AC7C7248
+[LOG] AsyncThread::threadFunc                  :     done setposition
+[LOG] AsyncThread::threadFunc                  :     done flush
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D0AC7C7248
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D0AC7C73F8
+[LOG] AsyncThread::threadFunc                  :     done setposition
+[LOG] AsyncThread::threadFunc                  :     done flush
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D0AC7C73F8
+[LOG] SoundI::release                          : Kick (000001D0AD6F1C58)
+[LOG] SoundI::release                          :     Kick (000001D18AA7E148)
+[LOG] SoundI::release                          :     Kick (000001D12960D468)
+[LOG] SoundI::release                          : Synth (000001D0AD6F1AA8)
+[LOG] SoundI::release                          :     Synth (000001D18AA80EC8)
+[LOG] SoundI::release                          :     Synth (000001D12960DB28)
+[LOG] SoundI::release                          : Drone (000001D0AD6F18F8)
+[LOG] SoundI::release                          :     Drone (000001D18AA81A28)
+[LOG] SoundI::release                          :     Drone (000001D12960D978)
+[LOG] SoundI::release                          : Bass01 (000001D0AD6F1598)
+[LOG] SoundI::release                          :     Bass01 (000001D18AA7E628)
+[LOG] SoundI::release                          :     Bass01 (000001CE876D5DA8)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] SystemI::createSound                     : filename = FMOD_Project\RAB\Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000001D0ADC58318 : node = 000001D160D3D070
+[LOG] SystemI::createSound                     : add node to async list : head = 000001D18AA7E438.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D0ADC58318
+[LOG] SystemI::createSound                     : filename = FMOD_Project\RAB\Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSoundInternal             :     Create name='FMOD_Project\RAB\Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 9385344
+[LOG] SystemI::createSound                     :     setdata soundi = 000001D0ADC57FB8 : node = 000001D160D3D1B0
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 93632
+[LOG] SystemI::createSound                     :     add node to async list : head = 000001D18AA7E438.  list count = 0
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001D160D3D180
+[LOG] SystemI::createSound                     :     filename = FMOD_Project\RAB\Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSound                     :     setdata soundi = 000001D0ADC58168 : node = 000001D160D3D2F0
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSound                     :     add node to async list : head = 000001D18AA7E438.  list count = 1
+[LOG] SystemI::createSound                     :     filename = FMOD_Project\RAB\Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 000001D1294946C8 : node = 000001D160D3C530
+[LOG] SystemI::createSound                     :     add node to async list : head = 000001D18AA7E438.  list count = 2
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Bass01', format=2, channels=2, frequency=48000, lengthbytes=94144, lengthpcm=461399, pcmblocksize=0, loopstart=0, loopend=460798, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.612549.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D0ADC58318
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D0ADC57FB8
+[LOG] SystemI::createSoundInternal             :     Create name='FMOD_Project\RAB\Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 9385344
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 93632
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001D160D3D2C0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Drone', format=2, channels=2, frequency=48000, lengthbytes=185120, lengthpcm=828000, pcmblocksize=0, loopstart=0, loopend=460799, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.768707.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D0ADC57FB8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D0ADC58168
+[LOG] SystemI::createSoundInternal             :     Create name='FMOD_Project\RAB\Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 9385344
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 93632
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001D160D3D400
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Synth', format=2, channels=2, frequency=48000, lengthbytes=192224, lengthpcm=805800, pcmblocksize=0, loopstart=0, loopend=460799, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.330536.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D0ADC58168
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D1294946C8
+[LOG] SystemI::createSoundInternal             :     Create name='FMOD_Project\RAB\Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 9385344
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 93632
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001D160D3C640
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Kick', format=2, channels=2, frequency=48000, lengthbytes=62528, lengthpcm=461100, pcmblocksize=0, loopstart=0, loopend=460799, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.707062.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D1294946C8
+[LOG] SoundI::getSubSound                      : sound 000001D0ADC58318.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      : starting non blocking seek and setting sound to not ready state
+[LOG] SoundI::getSubSound                      : finished preparing nonblocking getSubSound seek
+[LOG] SoundI::getSubSound                      : sound 000001D0ADC57FB8.  Subsound index 0 / 1
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D0AC7C75A8
+[LOG] SoundI::getSubSound                      : starting non blocking seek and setting sound to not ready state
+[LOG] AsyncThread::threadFunc                  :     done setposition
+[LOG] SoundI::getSubSound                      :     finished preparing nonblocking getSubSound seek
+[LOG] SoundI::getSubSound                      :     sound 000001D0ADC58168.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      :     starting non blocking seek and setting sound to not ready state
+[LOG] SoundI::getSubSound                      :     finished preparing nonblocking getSubSound seek
+[LOG] SoundI::getSubSound                      :     sound 000001D1294946C8.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      :     starting non blocking seek and setting sound to not ready state
+[LOG] SoundI::getSubSound                      :     finished preparing nonblocking getSubSound seek
+[LOG] AsyncThread::threadFunc                  :     done flush
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D0AC7C75A8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D0AC7C7908
+[LOG] AsyncThread::threadFunc                  :     done setposition
+[LOG] AsyncThread::threadFunc                  :     done flush
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D0AC7C7908
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D0AC7C7AB8
+[LOG] AsyncThread::threadFunc                  :     done setposition
+[LOG] AsyncThread::threadFunc                  :     done flush
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D0AC7C7AB8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D0AC7C7C68
+[LOG] AsyncThread::threadFunc                  :     done setposition
+[LOG] AsyncThread::threadFunc                  :     done flush
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D0AC7C7C68
+[LOG] SoundI::release                          : Kick (000001D11BD9DB18)
+[LOG] SoundI::release                          :     Kick (000001D18AA81548)
+[LOG] SoundI::release                          :     Kick (000001D0AC7C73F8)
+[LOG] SoundI::release                          : Synth (000001D0AD6F1238)
+[LOG] SoundI::release                          :     Synth (000001D18AA7F668)
+[LOG] SoundI::release                          :     Synth (000001D0AC7C7248)
+[LOG] SoundI::release                          : Drone (000001D0AD6F1748)
+[LOG] SoundI::release                          :     Drone (000001D18AA81F08)
+[LOG] SoundI::release                          :     Drone (000001D0AC7C7098)
+[LOG] SoundI::release                          : Bass01 (000001D0AD6F1088)
+[LOG] SoundI::release                          :     Bass01 (000001D18AA7F808)
+[LOG] SoundI::release                          :     Bass01 (000001D0AC7C7758)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] SystemI::createSound                     : filename = FMOD_Project\RAB\Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000001D129493AF8 : node = 000001D160D3C670
+[LOG] SystemI::createSound                     : add node to async list : head = 000001D18AA7E438.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D129493AF8
+[LOG] SystemI::createSound                     : filename = FMOD_Project\RAB\Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     Create name='FMOD_Project\RAB\Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSound                     :     setdata soundi = 000001D1294941B8 : node = 000001D160D3CA30
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSound                     :     add node to async list : head = 000001D18AA7E438.  list count = 0
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 9385344
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 93632
+[LOG] SystemI::createSound                     :     filename = FMOD_Project\RAB\Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001D160D3C780
+[LOG] SystemI::createSound                     :     setdata soundi = 000001D129493E58 : node = 000001D160D3C7B0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSound                     :     add node to async list : head = 000001D18AA7E438.  list count = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSound                     :     filename = FMOD_Project\RAB\Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 000001D129493948 : node = 000001D160D3C8F0
+[LOG] SystemI::createSound                     :     add node to async list : head = 000001D18AA7E438.  list count = 2
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Bass01', format=2, channels=2, frequency=48000, lengthbytes=94144, lengthpcm=461399, pcmblocksize=0, loopstart=0, loopend=460798, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.612549.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D129493AF8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D1294941B8
+[LOG] SystemI::createSoundInternal             :     Create name='FMOD_Project\RAB\Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 9385344
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 93632
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001D160D3CB40
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Drone', format=2, channels=2, frequency=48000, lengthbytes=185120, lengthpcm=828000, pcmblocksize=0, loopstart=0, loopend=460799, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.768707.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D1294941B8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D129493E58
+[LOG] SystemI::createSoundInternal             :     Create name='FMOD_Project\RAB\Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 9385344
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 93632
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001D160D3C8C0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Synth', format=2, channels=2, frequency=48000, lengthbytes=192224, lengthpcm=805800, pcmblocksize=0, loopstart=0, loopend=460799, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.330536.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D129493E58
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D129493948
+[LOG] SystemI::createSoundInternal             :     Create name='FMOD_Project\RAB\Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 9385344
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 93632
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001D160D3CA00
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Kick', format=2, channels=2, frequency=48000, lengthbytes=62528, lengthpcm=461100, pcmblocksize=0, loopstart=0, loopend=460799, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.707062.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D129493948
+[LOG] SoundI::getSubSound                      : sound 000001D129493AF8.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      : starting non blocking seek and setting sound to not ready state
+[LOG] SoundI::getSubSound                      : finished preparing nonblocking getSubSound seek
+[LOG] SoundI::getSubSound                      : sound 000001D1294941B8.  Subsound index 0 / 1
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D0AC7C7E18
+[LOG] SoundI::getSubSound                      : starting non blocking seek and setting sound to not ready state
+[LOG] AsyncThread::threadFunc                  :     done setposition
+[LOG] SoundI::getSubSound                      :     finished preparing nonblocking getSubSound seek
+[LOG] SoundI::getSubSound                      :     sound 000001D129493E58.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      :     starting non blocking seek and setting sound to not ready state
+[LOG] SoundI::getSubSound                      :     finished preparing nonblocking getSubSound seek
+[LOG] SoundI::getSubSound                      :     sound 000001D129493948.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      :     starting non blocking seek and setting sound to not ready state
+[LOG] SoundI::getSubSound                      :     finished preparing nonblocking getSubSound seek
+[LOG] AsyncThread::threadFunc                  :     done flush
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D0AC7C7E18
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D0AC7C7098
+[LOG] AsyncThread::threadFunc                  :     done setposition
+[LOG] AsyncThread::threadFunc                  :     done flush
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D0AC7C7098
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D0AC7C7758
+[LOG] AsyncThread::threadFunc                  :     done setposition
+[LOG] AsyncThread::threadFunc                  :     done flush
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D0AC7C7758
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D0AC7C7248
+[LOG] AsyncThread::threadFunc                  :     done setposition
+[LOG] AsyncThread::threadFunc                  :     done flush
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D0AC7C7248
+[LOG] SoundI::release                          : Kick (000001D1294946C8)
+[LOG] SoundI::release                          :     Kick (000001D18AA7D2A8)
+[LOG] SoundI::release                          :     Kick (000001D0AC7C7C68)
+[LOG] SoundI::release                          : Synth (000001D0ADC58168)
+[LOG] SoundI::release                          :     Synth (000001D18AA80D28)
+[LOG] SoundI::release                          :     Synth (000001D0AC7C7AB8)
+[LOG] SoundI::release                          : Drone (000001D0ADC57FB8)
+[LOG] SoundI::release                          :     Drone (000001D18AA820A8)
+[LOG] SoundI::release                          :     Drone (000001D0AC7C7908)
+[LOG] SoundI::release                          : Bass01 (000001D0ADC58318)
+[LOG] SoundI::release                          :     Bass01 (000001D18AA81BC8)
+[LOG] SoundI::release                          :     Bass01 (000001D0AC7C75A8)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] SystemI::createSound                     : filename = FMOD_Project\RAB\Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000001CE876D5DA8 : node = 000001D0F3E54BB0
+[LOG] SystemI::createSound                     : add node to async list : head = 000001D18AA7E438.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001CE876D5DA8
+[LOG] SystemI::createSound                     : filename = FMOD_Project\RAB\Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSoundInternal             :     Create name='FMOD_Project\RAB\Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 9385344
+[LOG] SystemI::createSound                     :     setdata soundi = 000001D129319558 : node = 000001D0F3E54CF0
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 93632
+[LOG] SystemI::createSound                     :     add node to async list : head = 000001D18AA7E438.  list count = 0
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSound                     :     filename = FMOD_Project\RAB\Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001D0F3E54CC0
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSound                     :     setdata soundi = 000001D1293191F8 : node = 000001D0F3E54930
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSound                     :     add node to async list : head = 000001D18AA7E438.  list count = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSound                     :     filename = FMOD_Project\RAB\Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 000001D1293198B8 : node = 000001D0F3E54E30
+[LOG] SystemI::createSound                     :     add node to async list : head = 000001D18AA7E438.  list count = 2
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Bass01', format=2, channels=2, frequency=48000, lengthbytes=94144, lengthpcm=461399, pcmblocksize=0, loopstart=0, loopend=460798, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.612549.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001CE876D5DA8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D129319558
+[LOG] SystemI::createSoundInternal             :     Create name='FMOD_Project\RAB\Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 9385344
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 93632
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001D0F3E54E00
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Drone', format=2, channels=2, frequency=48000, lengthbytes=185120, lengthpcm=828000, pcmblocksize=0, loopstart=0, loopend=460799, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.768707.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D129319558
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D1293191F8
+[LOG] SystemI::createSoundInternal             :     Create name='FMOD_Project\RAB\Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 9385344
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 93632
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001D0F3E54A40
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Synth', format=2, channels=2, frequency=48000, lengthbytes=192224, lengthpcm=805800, pcmblocksize=0, loopstart=0, loopend=460799, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.330536.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D1293191F8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D1293198B8
+[LOG] SystemI::createSoundInternal             :     Create name='FMOD_Project\RAB\Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 9385344
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 93632
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001D0F3E54F40
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Kick', format=2, channels=2, frequency=48000, lengthbytes=62528, lengthpcm=461100, pcmblocksize=0, loopstart=0, loopend=460799, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.707062.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D1293198B8
+[LOG] SoundI::getSubSound                      : sound 000001CE876D5DA8.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      : starting non blocking seek and setting sound to not ready state
+[LOG] SoundI::getSubSound                      : finished preparing nonblocking getSubSound seek
+[LOG] SoundI::getSubSound                      : sound 000001D129319558.  Subsound index 0 / 1
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D0AC7C73F8
+[LOG] SoundI::getSubSound                      : starting non blocking seek and setting sound to not ready state
+[LOG] AsyncThread::threadFunc                  :     done setposition
+[LOG] SoundI::getSubSound                      :     finished preparing nonblocking getSubSound seek
+[LOG] SoundI::getSubSound                      :     sound 000001D1293191F8.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      :     starting non blocking seek and setting sound to not ready state
+[LOG] SoundI::getSubSound                      :     finished preparing nonblocking getSubSound seek
+[LOG] SoundI::getSubSound                      :     sound 000001D1293198B8.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      :     starting non blocking seek and setting sound to not ready state
+[LOG] SoundI::getSubSound                      :     finished preparing nonblocking getSubSound seek
+[LOG] AsyncThread::threadFunc                  :     done flush
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D0AC7C73F8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D0AC7C7AB8
+[LOG] AsyncThread::threadFunc                  :     done setposition
+[LOG] AsyncThread::threadFunc                  :     done flush
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D0AC7C7AB8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D0AC7C75A8
+[LOG] AsyncThread::threadFunc                  :     done setposition
+[LOG] AsyncThread::threadFunc                  :     done flush
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D0AC7C75A8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D0AC7C7908
+[LOG] AsyncThread::threadFunc                  :     done setposition
+[LOG] AsyncThread::threadFunc                  :     done flush
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D0AC7C7908
+[LOG] SoundI::release                          : Kick (000001D129493948)
+[LOG] SoundI::release                          :     Kick (000001D18AA7DAC8)
+[LOG] SoundI::release                          :     Kick (000001D0AC7C7248)
+[LOG] SoundI::release                          : Synth (000001D129493E58)
+[LOG] SoundI::release                          :     Synth (000001D18AA7EFE8)
+[LOG] SoundI::release                          :     Synth (000001D0AC7C7758)
+[LOG] SoundI::release                          : Drone (000001D1294941B8)
+[LOG] SoundI::release                          :     Drone (000001D18AA81548)
+[LOG] SoundI::release                          :     Drone (000001D0AC7C7098)
+[LOG] SoundI::release                          : Bass01 (000001D129493AF8)
+[LOG] SoundI::release                          :     Bass01 (000001D18AA80EC8)
+[LOG] SoundI::release                          :     Bass01 (000001D0AC7C7E18)
+[LOG] SoundI::release                          : Kick (000001D1293198B8)
+[LOG] SoundI::release                          :     Kick (000001D18AA81A28)
+[LOG] SoundI::release                          :     Kick (000001D0AC7C7908)
+[LOG] SoundI::release                          : Synth (000001D1293191F8)
+[LOG] SoundI::release                          :     Synth (000001D18AA7E148)
+[LOG] SoundI::release                          :     Synth (000001D0AC7C75A8)
+[LOG] SoundI::release                          : Drone (000001D129319558)
+[LOG] SoundI::release                          :     Drone (000001D18AA80D28)
+[LOG] SoundI::release                          :     Drone (000001D0AC7C7AB8)
+[LOG] SoundI::release                          : Bass01 (000001CE876D5DA8)
+[LOG] SoundI::release                          :     Bass01 (000001D18AA82588)
+[LOG] SoundI::release                          :     Bass01 (000001D0AC7C73F8)
+[LOG] SoundI::release                          :  (000001D0D2C72D18)
+[LOG] SoundI::release                          :     SyntheticBrassShort (000001D18AABC228)
+[LOG] SoundI::release                          :  (000001D11BB1E958)
+[LOG] SoundI::release                          :     Complete1 (000001D18AAB8AE8)
+[LOG] SoundI::release                          :  (000001D1036C08D8)
+[LOG] SoundI::release                          :     Complete2 (000001D18AABBBA8)
+[LOG] SoundI::release                          :  (000001D0F4B099F8)
+[LOG] SoundI::release                          :     Complete3 (000001D18AABC088)
+[LOG] SoundI::release                          :  (000001D1036C1A18)
+[LOG] SoundI::release                          :     Complete4 (000001D18AABB388)
+[LOG] SoundI::release                          :  (000001D0F4673B98)
+[LOG] SoundI::release                          :     Complete5 (000001D18AAB2628)
+[LOG] SoundI::release                          :  (000001D0F4B071B8)
+[LOG] SoundI::release                          :     Complete6 (000001D18AA7D5E8)
+[LOG] SoundI::release                          :  (000001D0F4B092C8)
+[LOG] SoundI::release                          :     m4-rifle-foley-magazine-remove-1 (000001D18AA801C8)
+[LOG] SoundI::release                          :  (000001D0FEB4ABF8)
+[LOG] SoundI::release                          :     m4-rifle-foley-magazine-remove-2 (000001D18AAB2B08)
+[LOG] SoundI::release                          :  (000001D1036C1CF8)
+[LOG] SoundI::release                          :     m4-rifle-foley-magazine-remove-3 (000001D18AABB6C8)
+[LOG] SoundI::release                          :  (000001D1036C1008)
+[LOG] SoundI::release                          :     m4-rifle-foley-magazine-remove-4 (000001D18AABA9C8)
+[LOG] SoundI::release                          :  (000001D11BB1E228)
+[LOG] SoundI::release                          :     m4-rifle-foley-short-rattle-1 (000001D18AAB7908)
+[LOG] SoundI::release                          :  (000001D0D2C71BD8)
+[LOG] SoundI::release                          :     m4-rifle-foley-short-rattle-2 (000001D18AAB6DA8)
+[LOG] SoundI::release                          :  (000001D0D2C70928)
+[LOG] SoundI::release                          :     m4-rifle-foley-short-rattle-3 (000001D18AAB1E08)
+[LOG] SoundI::release                          :  (000001D0D2C72FF8)
+[LOG] SoundI::release                          :     m4-rifle-foley-short-rattle-4 (000001D18AAB0A88)
+[LOG] SoundI::release                          :  (000001D1036C0D28)
+[LOG] SoundI::release                          :     m4-rifle-foley-magazine-replace-1 (000001D18AAB9988)
+[LOG] SoundI::release                          :  (000001D11BB1F648)
+[LOG] SoundI::release                          :     m4-rifle-foley-magazine-replace-2 (000001D18AABAEA8)
+[LOG] SoundI::release                          :  (000001D0F4B07328)
+[LOG] SoundI::release                          :     m4-rifle-foley-magazine-replace-3 (000001D18AA7FCE8)
+[LOG] SoundI::release                          :  (000001D11BB1F928)
+[LOG] SoundI::release                          :     BulletImpact_Flesh_01 (000001D18AAB7DE8)
+[LOG] SoundI::release                          :  (000001D1036C05F8)
+[LOG] SoundI::release                          :     BulletImpact_Flesh_02 (000001D18AABB1E8)
+[LOG] SoundI::release                          :  (000001D0F4B08E78)
+[LOG] SoundI::release                          :     BulletImpact_Flesh_03 (000001D18AABBEE8)
+[LOG] SoundI::release                          :  (000001D11BB20338)
+[LOG] SoundI::release                          :     BulletImpact_Flesh_04 (000001D18AAB8128)
+[LOG] SoundI::release                          :  (000001D0D2C72E88)
+[LOG] SoundI::release                          :     BulletImpact_Flesh_05 (000001D18AAB6A68)
+[LOG] SoundI::release                          :  (000001D1036BFEC8)
+[LOG] SoundI::release                          :     emergency-alarm-bell-ringing (000001D18AABC8A8)
+[LOG] SoundI::release                          :  (000001D0FEB4CA28)
+[LOG] SoundI::release                          :     Click1 (000001D18AAB00C8)
+[LOG] SoundI::release                          :  (000001D11BB1FA98)
+[LOG] SoundI::release                          :     Click2 (000001D18AAB9CC8)
+[LOG] SoundI::release                          :  (000001D11BB1E0B8)
+[LOG] SoundI::release                          :     Click3 (000001D18AABC3C8)
+[LOG] SoundI::release                          :  (000001D0F4675578)
+[LOG] SoundI::release                          :     Click4 (000001D18AAB53A8)
+[LOG] SoundI::release                          :  (000001D0FA1F84C8)
+[LOG] SoundI::release                          :     Click5 (000001D18AA7DE08)
+[LOG] SoundI::release                          :  (000001D0D2C707B8)
+[LOG] SoundI::release                          :     Click6 (000001D18AAB08E8)
+[LOG] SoundI::release                          :  (000001D0FEB4C018)
+[LOG] SoundI::release                          :     Accept3 (000001D18AAB6588)
+[LOG] SoundI::release                          :  (000001D11BB1FEE8)
+[LOG] SoundI::release                          :     Accept4 (000001D18AAB9168)
+[LOG] SoundI::release                          :  (000001D0F4674888)
+[LOG] SoundI::release                          :     Accept5 (000001D18AAB60A8)
+[LOG] SoundI::release                          :  (000001D0FEB494F8)
+[LOG] SoundI::release                          :     Accept6 (000001D18AAB1AC8)
+[LOG] SoundI::release                          :  (000001D1036C15C8)
+[LOG] SoundI::release                          :     Accept1 (000001D18AAB9648)
+[LOG] SoundI::release                          :  (000001D11BB1DC68)
+[LOG] SoundI::release                          :     Accept2 (000001D18AAB75C8)
+[LOG] SoundI::release                          :  (000001D0F4B06A88)
+[LOG] SoundI::release                          :     m4-rifle-foley-bolt-charge-3 (000001D18AA816E8)
+[LOG] SoundI::release                          :  (000001D0F4B09CD8)
+[LOG] SoundI::release                          :     AK47_01 (000001D18AAB68C8)
+[LOG] SoundI::release                          :  (000001D0F46766B8)
+[LOG] SoundI::release                          :     AK47_02 (000001D18AAB41C8)
+[LOG] SoundI::release                          :  (000001D0F4B08FE8)
+[LOG] SoundI::release                          :     AK47_03 (000001D18AABCA48)
+[LOG] SoundI::release                          :  (000001D11BB1D988)
+[LOG] SoundI::release                          :     AK47_04 (000001D18AAB8608)
+[LOG] SoundI::release                          :  (000001D0F4673018)
+[LOG] SoundI::release                          :     weapons_bullet_casing_01 (000001D18AAB39A8)
+[LOG] SoundI::release                          :  (000001D1036C1B88)
+[LOG] SoundI::release                          :     weapons_bullet_casing_02 (000001D18AABBD48)
+[LOG] SoundI::release                          :  (000001D0F46738B8)
+[LOG] SoundI::release                          :     weapons_bullet_casing_03 (000001D18AAB49E8)
+[LOG] SoundI::release                          :  (000001D0FEB49948)
+[LOG] SoundI::release                          :     weapons_bullet_casing_04 (000001D18AAB0F68)
+[LOG] SoundI::release                          :  (000001D1036C0A48)
+[LOG] SoundI::release                          :     AWCK AR AK 47 Close 01 (000001D18AABA688)
+[LOG] SoundI::release                          :  (000001D0F4B07BC8)
+[LOG] SoundI::release                          :     AWCK AR AK 47 Close 02 (000001D18AABC708)
+[LOG] SoundI::release                          :  (000001D0FEB4CD08)
+[LOG] SoundI::release                          :     AWCK AR AK 47 Close 03 (000001D18AAB22E8)
+[LOG] SoundI::release                          :  (000001D0F4B07498)
+[LOG] SoundI::release                          :     AWCK AR AK 47 Close 04 (000001D18AA7DFA8)
+[LOG] SoundI::release                          :  (000001D11BB1F088)
+[LOG] SoundI::release                          :     SF-DS Energy Beam 01 (000001D18AAB7AA8)
+[LOG] SoundI::release                          :  (000001D0F4B06BF8)
+[LOG] SoundI::release                          :     SF-DS Machine Airlock Open 01 (000001D18AA7D448)
+[LOG] SoundI::release                          :  (000001D11BB1F368)
+[LOG] SoundI::release                          :     kck_rvb (000001D18AAB70E8)
+[LOG] SoundI::release                          :  (000001D0D2C73448)
+[LOG] SoundI::release                          :     SyntheticBrassShort (000001D18AABA348)
+[LOG] SoundI::release                          :  (000001D0D2C72028)
+[LOG] SoundI::release                          :     Error1 (000001D18AAB2E48)
+[LOG] SoundI::release                          :  (000001D0FA1FA468)
+[LOG] SoundI::release                          :     Error2 (000001D18AA809E8)
+[LOG] SoundI::release                          :  (000001D0F4B06D68)
+[LOG] SoundI::release                          :     Error3 (000001D18AA80508)
+[LOG] SoundI::release                          :  (000001D1036C1458)
+[LOG] SoundI::release                          :     Error4 (000001D18AAB8C88)
+[LOG] SoundI::release                          :  (000001D11BB20A68)
+[LOG] SoundI::release                          :     Error5 (000001D18AAB8E28)
+[LOG] SoundI::release                          :  (000001D0D2C718F8)
+[LOG] SoundI::release                          :     Error6 (000001D18AAB7768)
+[LOG] SoundI::release                          :  (000001D0F4B095A8)
+[LOG] SoundI::release                          :     Deny1 (000001D18AA7FE88)
+[LOG] SoundI::release                          :  (000001D0F4673A28)
+[LOG] SoundI::release                          :     Deny2 (000001D18AAB4B88)
+[LOG] SoundI::release                          :  (000001D1036C1738)
+[LOG] SoundI::release                          :     Deny3 (000001D18AAB8FC8)
+[LOG] SoundI::release                          :  (000001D0FEB49C28)
+[LOG] SoundI::release                          :     Deny4 (000001D18AAB5D68)
+[LOG] SoundI::release                          :  (000001D11BB1EF18)
+[LOG] SoundI::release                          :     impact-1 (000001D18AABAD08)
+[LOG] SoundI::release                          :  (000001D0F4B07608)
+[LOG] SoundI::release                          :     impact-2 (000001D18AA7D108)
+[LOG] SoundI::release                          :  (000001D0D2C714A8)
+[LOG] SoundI::release                          :     impact-3 (000001D18AAB3188)
+[LOG] SoundI::release                          :  (000001D0F4675298)
+[LOG] SoundI::release                          :     impact-4 (000001D18AAB56E8)
+[LOG] SoundI::release                          :  (000001D11BB1DF48)
+[LOG] SoundI::release                          :     MUI CONFIRM LARGE Hologram Access (000001D18AABA4E8)
+[LOG] SoundI::release                          :  (000001D0F4674B68)
+[LOG] SoundI::release                          :     MUI CONFIRM LARGE Glass Swell Shimmer (000001D18AAB0C28)
+[LOG] SoundI::release                          :  (000001D0FA1FAB98)
+[LOG] SoundI::release                          :     kck_rvb (000001D18AA81888)
+[LOG] SoundI::release                          :  (000001D1036C01A8)
+[LOG] SoundI::release                          :     MUI TEXT High Clicks (000001D18AABBA08)
+[LOG] SoundI::release                          :  (000001D1036C0038)
+[LOG] SoundI::release                          :     SF-CK Servo Medium Metal 02 (000001D18AABB868)
+[LOG] SoundI::release                          :  (000001D11BB1EC38)
+[LOG] SoundI::release                          :     mp5-submachinegun-foley-magazine-replace-5 (000001D18AAB7288)
+[LOG] SoundI::release                          :  (000001D0F4673D08)
+[LOG] SoundI::release                          :     mp5-submachinegun-foley-magazine-replace-6 (000001D18AAB5F08)
+[LOG] SoundI::release                          :  (000001D0F46745A8)
+[LOG] SoundI::release                          :     mp5-submachinegun-foley-magazine-replace-7 (000001D18AAB5888)
+[LOG] SoundI::release                          :  (000001D0D2C73728)
+[LOG] SoundI::release                          :     m4-rifle-foley-bolt-charge-3 (000001D18AAB87A8)
+[LOG] SoundI::release                          :  (000001D11BB1E7E8)
+[LOG] SoundI::release                          :     Amb (000001D18AABB048)
+[LOG] SoundI::release                          :  (000001D1036C0E98)
+[LOG] SoundI::release                          :     zapsplat_foley_bag_rucksack_set_down_carpet_001_37080 (000001D18AABA1A8)
+[LOG] SoundI::release                          :  (000001D0F46760F8)
+[LOG] SoundI::release                          :     zapsplat_foley_bag_rucksack_set_down_carpet_002_36930 (000001D18AAB2488)
+[LOG] SoundI::release                          :  (000001D0D2C70D78)
+[LOG] SoundI::release                          :     zapsplat_foley_bag_rucksack_set_down_carpet_003_36931 (000001D18AAB3808)
+[LOG] SoundI::release                          :  (000001D0F46732F8)
+[LOG] SoundI::release                          :     zapsplat_foley_bag_rucksack_set_down_carpet_004_36932 (000001D18AAB46A8)
+[LOG] SoundI::release                          :  (000001D0FA1F9498)
+[LOG] SoundI::release                          :     zapsplat_foley_bag_rucksack_set_down_carpet_005_36933 (000001D18AA80B88)
+[LOG] SoundI::release                          :  (000001D0F4B067A8)
+[LOG] SoundI::release                          :     SF-DS Computer Beep High 02 (000001D18AABC568)
+[LOG] SoundI::release                          :  (000001D11BB20058)
+[LOG] SoundI::release                          :     Collect_02 (000001D18AAB7F88)
+[LOG] SoundI::release                          :  (000001D0F4676268)
+[LOG] SoundI::release                          :     Collect_03 (000001D18AAB05A8)
+[LOG] SoundI::release                          :  (000001D0F4B08018)
+[LOG] SoundI::release                          :     Collect_04 (000001D18AA7D788)
+[LOG] SoundI::release                          :  (000001D0D2C70088)
+[LOG] SoundI::release                          :     Collect_05 (000001D18AAB1448)
+[LOG] SoundI::release                          :  (000001D0F4676548)
+[LOG] SoundI::release                          :     Collect_06 (000001D18AAB4D28)
+[LOG] SoundI::release                          :  (000001D0F4676828)
+[LOG] SoundI::release                          :     Collect_01 (000001D18AAB1108)
+[LOG] SoundI::release                          :  (000001D0F4B09158)
+[LOG] SoundI::release                          :     mp5-submachinegun-foley-dry-fire-1 (000001D18AA7C5A8)
+[LOG] SoundI::release                          :  (000001D0FEB4C188)
+[LOG] SoundI::release                          :     mp5-submachinegun-foley-dry-fire-2 (000001D18AAB1788)
+[LOG] SoundI::release                          :  (000001D0D2C72758)
+[LOG] SoundI::release                          :     mp5-submachinegun-foley-dry-fire-3 (000001D18AAB7428)
+[LOG] SoundI::release                          :  (000001D0D2C72A38)
+[LOG] SoundI::release                          :     mp5-submachinegun-foley-dry-fire-4 (000001D18AAB97E8)
+[LOG] SoundI::release                          :  (000001D0F4673468)
+[LOG] SoundI::release                          :     pistol_main_01 (000001D18AAB0408)
+[LOG] SoundI::release                          :  (000001D11BB1F7B8)
+[LOG] SoundI::release                          :     pistol_main_02 (000001D18AAB7C48)
+[LOG] SoundI::release                          :  (000001D0F4B06918)
+[LOG] SoundI::release                          :     pistol_main_03 (000001D18AABCBE8)
+[LOG] SoundI::release                          :  (000001D1036C0BB8)
+[LOG] SoundI::release                          :     pistol_main_04 (000001D18AABA828)
+[LOG] SoundI::release                          :  (000001D0D2C71788)
+[LOG] SoundI::release                          :     pistol_main_05 (000001D18AABAB68)
+[LOG] SoundI::release                          :  (000001D11BB204A8)
+[LOG] SoundI::release                          :     pistol_main_06 (000001D18AAB8468)
+[LOG] SoundI::release                          :  (000001D0D2C728C8)
+[LOG] SoundI::release                          :     pistol_main_07 (000001D18AAB6F48)
+[LOG] SoundI::release                          :  (000001D0F4674FB8)
+[LOG] SoundI::release                          :     AK47_tail_01 (000001D18AAB4EC8)
+[LOG] SoundI::release                          :  (000001D0D2C6FAC8)
+[LOG] SoundI::release                          :     AK47_tail_02 (000001D18AAB6C08)
+[LOG] SoundI::release                          :  (000001D0F4675CA8)
+[LOG] SoundI::release                          :     AK47_tail_03 (000001D18AAB27C8)
+[LOG] SoundI::release                          :  (000001D1036C12E8)
+[LOG] SoundI::release                          :     AK47_tail_04 (000001D18AABA008)
+[LOG] SoundI::release                          :  (000001D0FEB4CB98)
+[LOG] SoundI::release                          :     AK47_tail_05 (000001D18AAB34C8)
+[LOG] SoundI::release                          :  (000001D0FEB490A8)
+[LOG] SoundI::release                          :     AK47_tail_06 (000001D18AAB63E8)
+[LOG] SoundI::release                          :  (000001D0FA1F8358)
+[LOG] SoundI::release                          :     pistol_low_01 (000001D18AA80848)
+[LOG] SoundI::release                          :  (000001D0F4B082F8)
+[LOG] SoundI::release                          :     pistol_low_02 (000001D18AA806A8)
+[LOG] SoundI::release                          :  (000001D11BB1E398)
+[LOG] SoundI::release                          :     pistol_low_03 (000001D18AAB9308)
+[LOG] SoundI::release                          :  (000001D0F46763D8)
+[LOG] SoundI::release                          :     pistol_low_04 (000001D18AAB3668)
+[LOG] SoundI::release                          :  (000001D1036C0488)
+[LOG] SoundI::release                          :     pistol_low_05 (000001D18AAB82C8)
+[LOG] SoundI::release                          :  (000001D0D2C70C08)
+[LOG] SoundI::release                          :     pistol_low_06 (000001D18AAB2FE8)
+[LOG] SoundI::release                          :  (000001D11BB1FD78)
+[LOG] SoundI::release                          :     pistol_low_07 (000001D18AAB8948)
+[LOG] SoundI::release                          :  (000001D0F4675408)
+[LOG] SoundI::release                          :     AK47_end_01 (000001D18AAB0748)
+[LOG] SoundI::release                          :  (000001D0F4674718)
+[LOG] SoundI::release                          :     AK47_end_02 (000001D18AAB2CA8)
+[LOG] SoundI::release                          :  (000001D1036C0318)
+[LOG] SoundI::release                          :     AK47_end_03 (000001D18AAB9E68)
+[LOG] SoundI::release                          :  (000001D0D2C725E8)
+[LOG] SoundI::release                          :     AK47_end_04 (000001D18AAB3B48)
+[LOG] SoundI::release                          :  (000001D0D2C72198)
+[LOG] SoundI::release                          :     AK47_end_05 (000001D18AAB3CE8)
+[LOG] SoundI::release                          :  (000001D0F4676B08)
+[LOG] SoundI::release                          :     AWCK ADD Metal Sweetener Medium 03 (000001D18AAB3328)
+[LOG] SoundI::release                          :  (000001D0F4675F88)
+[LOG] SoundI::release                          :     glock-pistol-foley-dry-fire-1 (000001D18AAB5548)
+[LOG] SoundI::release                          :  (000001D0D2C72BA8)
+[LOG] SoundI::release                          :     glock-pistol-foley-dry-fire-2 (000001D18AAB94A8)
+[LOG] SoundI::release                          :  (000001D1036C18A8)
+[LOG] SoundI::release                          :     glock-pistol-foley-dry-fire-3 (000001D18AABB528)
+[LOG] SoundI::release                          :  (000001D0F4673FE8)
+[LOG] SoundI::release                          :     glock-pistol-foley-dry-fire-4 (000001D18AAB4028)
+[LOG] SoundI::release                          :  (000001D0FEB49AB8)
+[LOG] SoundI::release                          :     glock-pistol-foley-plastic-holser-draw-1 (000001D18AAB0268)
+[LOG] SoundI::release                          :  (000001D0F4675128)
+[LOG] SoundI::release                          :     glock-pistol-foley-plastic-holser-draw-2 (000001D18AAB5068)
+[LOG] SoundI::release                          :  (000001D11BB1E678)
+[LOG] SoundI::release                          :     glock-pistol-foley-plastic-holser-draw-3 (000001D18AAB9B28)
+[LOG] SoundI::release                          :  (000001D0F46756E8)
+[LOG] SoundI::release                          :     glock-pistol-foley-plastic-holser-draw-4 (000001D18AAB2968)
+[LOG] SoundI::release                          :  (000001D0FEB4C2F8)
+[LOG] SoundI::release                          :     glock-pistol-foley-plastic-holser-put-in-1 (000001D18AAB5A28)
+[LOG] SoundI::release                          :  (000001D0D2C735B8)
+[LOG] SoundI::release                          :     glock-pistol-foley-plastic-holser-put-in-2 (000001D18AABCD88)
+[LOG] SoundI::release                          :  (000001D0FEB4B498)
+[LOG] SoundI::release                          :     glock-pistol-foley-plastic-holser-put-in-3 (000001D18AAB6248)
+[LOG] SoundI::release                          :  (000001D0D2C70EE8)
+[LOG] SoundI::release                          :     glock-pistol-foley-plastic-holser-put-in-4 (000001D18AAB3E88)
+[LOG] SoundI::release                          :  (000001D0FEB49D98)
+[LOG] SoundI::release                          :     glock-pistol-foley-plastic-holser-put-in-6 (000001D18AAB1C68)
+[LOG] Thread::callback                         : FMOD Studio update thread finished.
+[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
+[LOG] LiveUpdate::release                      : 
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] Thread::callback                         : FMOD stream thread finished.
+[LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] SystemI::close                           : Closed.
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
