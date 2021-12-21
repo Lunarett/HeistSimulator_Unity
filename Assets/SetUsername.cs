@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 using TMPro;
 
 public class SetUsername : MonoBehaviour
@@ -20,15 +21,11 @@ public class SetUsername : MonoBehaviour
 	[SerializeField] private string _emptyMessage = "Error: You need to enter a name!";
 	[SerializeField] private string _exceededMessage = "Error: You have exceeded the minimum amount of characters";
 
-	private static string _username;
-
-	public string GetUsername { get => _username; }
-
 	private void Start()
 	{
-		if(_username != null)
+		if(PhotonNetwork.NickName != string.Empty)
 		{
-			_usernameDisplayText.text = _username;
+			_usernameDisplayText.text = PhotonNetwork.NickName;
 			_panelManager.SetPanel(_nextPanelID);
 		}
 	}
@@ -44,8 +41,8 @@ public class SetUsername : MonoBehaviour
 			return;
 		}
 
-		_username = _usernameInputField.text;
-		_usernameDisplayText.text = _usernameInputField.text;
+        PhotonNetwork.NickName = _usernameInputField.text;
+		_usernameDisplayText.text = PhotonNetwork.NickName;
 
 		_panelManager.SetPanel(_nextPanelID);
 	}
