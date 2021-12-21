@@ -9,24 +9,39 @@ public class FindLobbyManager : MonoBehaviourPunCallbacks
     [SerializeField] private Transform _lobbyListParent;
     [SerializeField] private NetworkManager _networkManager;
 
+    private List<GameObject> _spawnedSlots = new List<GameObject>();
+
     public void RefreshLobby()
     {
+        Debug.Log("Refresh has been Fired");
+
         // Destroy previously spawned slots
-        for (int i = transform.childCount - 1; i >= 0; i--)
+        if (_spawnedSlots.Count > 0)
         {
-            Destroy(_lobbyListParent.GetChild(i).gameObject);
+            for (int i = 0; i < _spawnedSlots.Count; i++)
+            {
+                Destroy(_spawnedSlots[i]);
+            }
         }
 
         // Spawn lobby slots to list
         if (PhotonNetwork.InLobby && _networkManager.CachedRoomList != null)
         {
+            Debug.Log("Refresh has been Fired");
+
             foreach (var lobby in _networkManager.CachedRoomList.Values)
             {
+                Debug.Log("Running foreach loop...");
+
                 if (lobby.IsOpen)
                 {
+                    Debug.Log("Lobby Is Open! Spawning the stuff");
+
                     GameObject obj = Instantiate(_lobbySlotPrefab, _lobbyListParent);
                     obj.transform.SetParent(_lobbyListParent);
                     obj.GetComponent<SetLobbySlot>().UpdateValues(lobby.Name, lobby.PlayerCount, lobby.MaxPlayers, _networkManager);
+
+                    _spawnedSlots.Add(obj);
                 }
             }
         }
@@ -71,5 +86,10 @@ public class FindLobbyManager : MonoBehaviourPunCallbacks
     public override void OnLeftLobby()
     {
         Debug.LogWarning("Left lobby!");
+    }
+
+    public override void OnConnected()
+    {
+        RefreshLobby();
     }
 }

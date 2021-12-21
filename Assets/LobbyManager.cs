@@ -49,12 +49,6 @@ public class LobbyManager : MonoBehaviourPunCallbacks
             }
         }
 
-        // Remove previously spawned slots
-        //for (int i = transform.childCount - 1; i >= 0; i--)
-        //{
-        //    Destroy(transform.GetChild(i).gameObject);
-        //}
-
         // Spawn existing player slots
         if (PhotonNetwork.InRoom)
         {
