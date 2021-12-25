@@ -13,8 +13,6 @@ public class FindLobbyManager : MonoBehaviourPunCallbacks
 
     public void RefreshLobby()
     {
-        Debug.Log("Refresh has been Fired");
-
         // Destroy previously spawned slots
         if (_spawnedSlots.Count > 0)
         {
@@ -27,8 +25,6 @@ public class FindLobbyManager : MonoBehaviourPunCallbacks
         // Spawn lobby slots to list
         if (PhotonNetwork.InLobby && _networkManager.CachedRoomList != null)
         {
-            Debug.Log("Refresh has been Fired");
-
             foreach (var lobby in _networkManager.CachedRoomList.Values)
             {
                 Debug.Log("Running foreach loop...");

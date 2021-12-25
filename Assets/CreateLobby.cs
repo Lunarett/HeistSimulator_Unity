@@ -38,9 +38,12 @@ public class CreateLobby : MonoBehaviourPunCallbacks
         _maxPlayerDisplay.text = _slider.value.ToString();
     }
 
-    public override void OnJoinedRoom()
+    public override void OnCreatedRoom()
     {
-        _panel.SetPanel(_panelIndex);
-        _lobbyManager.RefreshPlayers();
+        if(PhotonNetwork.InRoom)
+        {
+            _panel.SetPanel(_panelIndex);
+            _lobbyManager.RefreshPlayers();
+        }
     }
 }
