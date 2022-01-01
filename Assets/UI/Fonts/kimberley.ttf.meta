@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: ffd92bbd647e2bd4db878965e1ce454e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Kimberley
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 20660be1e8239084a981c6aca107d994, type: 3}
+  - {fileID: 12800000, guid: 80fd1022d2e23e9419aac66f2a47373e, type: 3}
+  - {fileID: 12800000, guid: f5211854af7c92845b0c0f31dc54f735, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
 using System;
 using UnityEngine;
-
+using Photon.Pun;
 
 public class PlayerCharacter : MonoBehaviour
 {
 	[Header("View Settings")]
+	[SerializeField] private Camera _camera;
+	[SerializeField] private Camera _gunCamera;
 	[SerializeField] private Transform _playerArms;
 	[SerializeField] private Transform _playerTransform;
 	[Range(0, 2)]
@@ -47,6 +49,7 @@ public class PlayerCharacter : MonoBehaviour
 	private bool _isAiming;
 	private bool _isCrouched;
 	private bool _isSprinting;
+	private PhotonView _photonView;
 
 	private void Awake()
 	{
@@ -54,9 +57,21 @@ public class PlayerCharacter : MonoBehaviour
 		_controller = GetComponent<CharacterController>();
 		ChangeWeapon();
 
+		_photonView = GetComponent<PhotonView>();
+
 		foreach (Weapon weapon in WeaponList)
 		{
 			weapon.Fired += OnFired;
+		}
+	}
+
+	private void Start()
+	{
+		if (!_photonView.IsMine)
+		{
+			Destroy(_camera.gameObject);
+			Destroy(_gunCamera.gameObject);
+			return;
 		}
 	}
 

@@ -9,111 +9,127 @@ using System.Collections.Generic;
 
 public enum CustomEventCode
 {
-    ForceRefresh = 100,
-    CharacterSelectionReady = 101,
-    CharacterSelcetionChangedCharacter = 102,
-    CharacterSelectionClass = 103
+	ForceRefresh = 100,
+	CharacterSelectionReady = 101,
+	CharacterSelcetionChangedCharacter = 102,
+	CharacterSelectionClass = 103
 }
 
-public class LobbyManager : MonoBehaviourPunCallbacks
+public class LobbyManager : MonoBehaviourPunCallbacks, IOnEventCallback
 {
-    [SerializeField] private GameObject _playerSlotPrefab;
-    [SerializeField] private Transform _playerListParent;
-    [SerializeField] private Button _readyButton;
-    [SerializeField] private TMP_Text _text;
-    [SerializeField] private int _seconds;
+	[SerializeField] private GameObject _playerSlotPrefab;
+	[SerializeField] private Transform _playerListParent;
+	[SerializeField] private Button _readyButton;
+	[SerializeField] private TMP_Text _text;
+	[SerializeField] private int _seconds;
 
-    private bool _ready;
-    private List<GameObject> _spawnedSlots = new List<GameObject>();
+	private bool _ready;
+	private List<GameObject> _spawnedSlots = new List<GameObject>();
 
-    public void ReadyUp()
-    {
-        ExitGames.Client.Photon.Hashtable hash = new ExitGames.Client.Photon.Hashtable();
+	public void ReadyUp()
+	{
+		Debug.Log("Readying Up!");
 
-        _ready = !_ready;
-        hash.Add("Ready", _ready);
-        PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
+		ExitGames.Client.Photon.Hashtable hash = new ExitGames.Client.Photon.Hashtable();
 
-        RaiseEventOptions options = new RaiseEventOptions();
-        options.Receivers = ReceiverGroup.All;
-        PhotonNetwork.RaiseEvent((byte)CustomEventCode.ForceRefresh, null, options, SendOptions.SendReliable);
-    }
+		_ready = !_ready;
+		hash.Add("Ready", _ready);
+		PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
 
-    public void RefreshPlayers()
-    {
-        if(_spawnedSlots.Count > 0)
-        {
-            for (int i = 0; i < _spawnedSlots.Count; i++)
-            {
-                Destroy(_spawnedSlots[i]);
-            }
-        }
+		RaiseEventOptions options = new RaiseEventOptions();
+		options.Receivers = ReceiverGroup.All;
+		PhotonNetwork.RaiseEvent((byte)CustomEventCode.ForceRefresh, null, options, SendOptions.SendReliable);
+	}
 
-        // Spawn existing player slots
-        if (PhotonNetwork.InRoom)
-        {
-            foreach (Player player in PhotonNetwork.PlayerList)
-            {
-                GameObject obj = Instantiate(_playerSlotPrefab, _playerListParent);
-                obj.transform.SetParent(_playerListParent);
-                obj.GetComponent<SetPlayerSlot>().SetPlayers(player);
+	public void RefreshPlayers()
+	{
+		Debug.Log("Refreshing Player List");
 
-                _spawnedSlots.Add(obj);
-            }
-        }
+		if (_spawnedSlots.Count > 0)
+		{
+			for (int i = 0; i < _spawnedSlots.Count; i++)
+			{
+				Destroy(_spawnedSlots[i]);
+			}
+		}
 
-        //Start count down before changing level
-        if (IsAllReady())
-        {
-            StartCoroutine(CountDownStart(_seconds));
-        }
-    }
+		// Spawn existing player slots
+		if (PhotonNetwork.InRoom)
+		{
+			foreach (Player player in PhotonNetwork.PlayerList)
+			{
+				GameObject obj = Instantiate(_playerSlotPrefab, _playerListParent);
+				obj.transform.SetParent(_playerListParent);
+				obj.GetComponent<SetPlayerSlot>().SetPlayers(player);
 
-    IEnumerator CountDownStart(int seconds)
-    {
-        float time = seconds;
+				_spawnedSlots.Add(obj);
+			}
+		}
 
-        while (time > 0)
-        {
-            _text.text = $"The game will start in {time} seconds!";
-            time--;
-            yield return new WaitForSeconds(1);
-        }
+		//Start count down before changing level
+		if (IsAllReady())
+		{
+			StartCoroutine(CountDownStart(_seconds));
+		}
+	}
 
-        PhotonNetwork.LoadLevel(1);
+	IEnumerator CountDownStart(int seconds)
+	{
+		float time = seconds;
 
-        yield return null;
-    }
+		while (time > 0)
+		{
+			_text.text = $"The game will start in {time} seconds!";
+			time--;
 
-    private bool IsAllReady()
-    {
-        foreach (var player in PhotonNetwork.CurrentRoom.Players.Values)
-        {
-            if (!player.CustomProperties.ContainsKey("Ready") || !(bool)player.CustomProperties["Ready"])
-            {
-                return false;
-            }
-        }
-        return true;
-    }
+			if (!IsAllReady())
+				yield return null;
 
-    public override void OnPlayerEnteredRoom(Player newPlayer)
-    {
-        RefreshPlayers();
-    }
+			yield return new WaitForSeconds(1);
+		}
 
-    public override void OnPlayerLeftRoom(Player otherPlayer)
-    {
-        RefreshPlayers();
-    }
+		PhotonNetwork.LoadLevel(1);
 
-    public override void OnJoinedRoom()
-    {
-        RefreshPlayers();
-    }
+		yield return null;
+	}
 
-    public override void OnLeftRoom()
-    {
-        RefreshPlayers();
-    }
+	private bool IsAllReady()
+	{
+		foreach (var player in PhotonNetwork.CurrentRoom.Players.Values)
+		{
+			if (!player.CustomProperties.ContainsKey("Ready") || !(bool)player.CustomProperties["Ready"])
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public override void OnPlayerEnteredRoom(Player newPlayer)
+	{
+		RefreshPlayers();
+	}
+
+	public override void OnPlayerLeftRoom(Player otherPlayer)
+	{
+		RefreshPlayers();
+	}
+
+	public override void OnJoinedRoom()
+	{
+		RefreshPlayers();
+	}
+
+	public override void OnLeftRoom()
+	{
+		RefreshPlayers();
+	}
+
+	public void OnEvent(EventData photonEvent)
+	{
+		Debug.Log("Event Raised");
+
+		if (photonEvent.Code == (byte)CustomEventCode.ForceRefresh)
+			RefreshPlayers();
+	}
 }
