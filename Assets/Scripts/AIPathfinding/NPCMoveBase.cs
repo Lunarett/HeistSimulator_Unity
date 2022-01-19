@@ -17,7 +17,7 @@ namespace Assets.Scripts.AIPathfinding
 
 		[SerializeField] protected Transform _playerTransform;
 
-		[SerializeField] private Weapon _weapon;
+		[SerializeField] private OldWeapon _weapon;
 
 		protected float _distanceToPlayer;
 		protected bool isShooting = false;

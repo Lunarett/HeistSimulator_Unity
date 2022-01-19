@@ -27,8 +27,8 @@ namespace Assets.Scripts.AIPathfinding
 
 		protected Vector3? _targetPosition;
 
-		[SerializeField] private Weapon _rifle;
-		[SerializeField] private Weapon _handgun;
+		[SerializeField] private OldWeapon _rifle;
+		[SerializeField] private OldWeapon _handgun;
 
 		protected bool isCovered = false;
 		[SerializeField] private bool usingHandgun = false;
@@ -37,7 +37,7 @@ namespace Assets.Scripts.AIPathfinding
 
 		public event Action Death;
 
-		public Weapon Weapon
+		public OldWeapon Weapon
 		{
 			get => usingHandgun? _handgun : _rifle;
 		}
@@ -164,7 +164,7 @@ namespace Assets.Scripts.AIPathfinding
 
 		private void TemporaryShooting()
 		{
-			Weapon weapon = Weapon;
+			OldWeapon weapon = Weapon;
 			if (weapon.CurrentAmmo > 0)
 			{
 				if (CanSeePlayer())

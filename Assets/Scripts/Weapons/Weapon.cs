@@ -1,194 +1,164 @@
-﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public enum EWeaponType
+{
+	AK47,
+	M4A1,
+	ScarL,
+	GrenadeLauncher,
+	Glock17,
+	Baretta92,
+	H3,
+	H4,
+	RocketLauncher,
+	Shotgun,
+	SMG1,
+	SMG2,
+	SMG3,
+	SMG4,
+	SMG5,
+	Sniper1,
+	Sniper2,
+	Sniper3
+}
 
 public class Weapon : MonoBehaviour
 {
 	[Header("Weapon Properties")]
-	public string Name;
-	public Sprite WeaponIcon;
-	[SerializeField] private bool _isSingleFire;
-	[SerializeField] private float _fireRate;
-
+	[SerializeField] private EWeaponType _weaponType;
 	[Space]
-	[Header("Muzzle Settings")]
-	[SerializeField] private ParticleSystem _muzzleParticle;
-	[SerializeField] private Light _muzzleLight;
-	[SerializeField] private Transform _muzzleLocation;
-
-	[Space]
-	[Header("Reload Settings")]
-	[SerializeField] private float _reloadTime;
-	[SerializeField] private int _magazineSize = 31;
-
-	[Space]
-	[Header("Bullet Settings")]
-	[SerializeField] private GameObject _bulletPrefab;
-	[SerializeField] private Transform _bulletSpawnPoint;
-	[SerializeField] private float _bulletForce;
-	[SerializeField] private float _raycastDistance = 50;
-	[SerializeField] private float _damage = 10;
-	[SerializeField] private GameObject _fleshParticlePrefab;
-
-	[Space] [Space]
-	[Header("Weapon Sway Settings")]
-	[SerializeField] private bool weaponSway;
-	[SerializeField] private float swayAmount = 0.02f;
-	[SerializeField] private float maxSwayAmount = 0.06f;
-	[SerializeField] private float swaySmoothValue = 4.0f;
-
-	[Space] [Space]
-	[Header("FMOD Events")] [FMODUnity.EventRef]
-	[SerializeField] private string _shotFEvent;
-	[FMODUnity.EventRef]
-	[SerializeField] private string _noAmmoFEvent;
-	[FMODUnity.EventRef]
-	[SerializeField] private string _reloadFEvent;
-	[FMODUnity.EventRef]
-	[SerializeField] private string _chargeFEvent;
-	[FMODUnity.EventRef]
-	[SerializeField] private string _playerDamageFEvent;
-
-	[SerializeField] private CameraShake _cameraShake;
-
-	[Space]
+	[SerializeField] private string _weaponName = "Weapon";
+	[SerializeField] private bool _singleFire = false;
+	[SerializeField] private bool _autoReload = false;
+	[SerializeField] private float _fireRate = 0.3f;
+	[SerializeField] private bool _useRaycastDamage = false;
 	[Space]
 	[SerializeField] private bool _debugMode;
 
+	[Header("Ammo Properties")]
+	[SerializeField] private int _magazineSize = 30;
+	[SerializeField] private float _reloadTime = 0.4f;
+	[Space]
+	[SerializeField] private Transform _bulletFireLocation;
+	[SerializeField] private Transform _bulletCasingLocation;
+	[Space]
+	[SerializeField] private GameObject _bulletPrefab;
+	[SerializeField] private GameObject _bulletCasing;
+	[Space]
+	[SerializeField] private float _bulletForce;
+	[SerializeField] private float _bulletCasingForce;
+
 	private int _currentAmmo = 0;
-	private Vector3 initialSwayPosition;
-	private float _lastBulletTime;
+	private float _lastBulletTime = 10;
 	private float _lastReloadTime;
+
 	private bool _isFiring;
-	private float _timer = 1;
 
-	public event System.Action Fired;
+	public EWeaponType GetWeaponType() => _weaponType;
+	public string GetWeaponName() => _weaponName;
 	public int CurrentAmmo { get => _currentAmmo; }
-	public int MagazineSize { get => _magazineSize; }
-
 
 	private void Start()
 	{
-		initialSwayPosition = transform.localPosition;
-
 		_currentAmmo = _magazineSize;
-
-		_muzzleLight.enabled = false;
-
-		FMODUnity.RuntimeManager.PlayOneShotAttached(_chargeFEvent, gameObject);
 	}
-	
+
 	protected virtual void Update()
 	{
-		if (_isFiring && !_isSingleFire && !isReloading() && CanFire())
+		if (_isFiring && !_singleFire && !IsReloading() && CanFire())
 			Fire();
-	}
-	
-	private void LateUpdate()
-	{
-		WeaponSway();
 	}
 
 	public void BeginFire()
 	{
 		_isFiring = true;
-		
-		if(_isSingleFire && !isReloading() && CanFire())
+
+		Debug.Log("CanFire is " + CanFire());
+		Debug.Log("Reloading is " + IsReloading());
+
+		if (_singleFire && !IsReloading() && CanFire())
 		{
 			Fire();
 		}
 	}
 
-	public void StopFire()
+	public void EndFire()
 	{
 		_isFiring = false;
 	}
 
-	protected void Fire()
+	private void Fire()
 	{
-		if (_currentAmmo > 0)
+		if(_currentAmmo > 0)
 		{
-			_currentAmmo -= 1;
-
-			FMODUnity.RuntimeManager.PlayOneShotAttached(_shotFEvent, gameObject);
+			Debug.Log("Weapon Shot");
 
 			_lastBulletTime = Time.time;
+			_currentAmmo--;
 
-			Fired?.Invoke();
+			SpawnBullet();
 
-			// Spawn Bullet
-			GameObject bullet = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, _bulletSpawnPoint.rotation);
-			bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * _bulletForce;
-			
-			if(Physics.Raycast(_bulletSpawnPoint.position, _bulletSpawnPoint.forward, out RaycastHit hit, _raycastDistance))
+			if(_useRaycastDamage)
 			{
-				if(_debugMode)
+				if (Physics.Raycast(_bulletFireLocation.position, _bulletFireLocation.forward, out RaycastHit hit, 1000))
 				{
-					Debug.DrawLine(_bulletSpawnPoint.position, hit.point, Color.red, 1);
-					Debug.Log(hit.collider.name);
+					if (_debugMode)
+					{
+						Debug.DrawLine(_bulletFireLocation.position, hit.point, Color.red, 1);
+						Debug.Log(hit.collider.name);
+					}
+
+					DealDamage();
 				}
-
-				if(hit.collider.CompareTag("Player"))
-					FMODUnity.RuntimeManager.PlayOneShotAttached(_playerDamageFEvent, gameObject);
-
-				if (_fleshParticlePrefab != null && hit.collider.CompareTag("Enemy"))
-					Instantiate(_fleshParticlePrefab, hit.point, Quaternion.identity, hit.collider.transform);
-
-				var damageable = hit.collider.GetComponent<IDamageable>();
-
-				if (damageable != null)
-					damageable.Damage(_damage);
 			}
-
-			if (_cameraShake != null)
-				_cameraShake.ShakeCamera(0.08f, 0.0015f);
-
-			_muzzleParticle.Emit(1);
-			StartCoroutine(MuzzleFlash());
+		}
+		else if (_autoReload)
+		{
+			Reload();
+			_lastBulletTime = Time.time;
 		}
 		else
 		{
-			FMODUnity.RuntimeManager.PlayOneShotAttached(_noAmmoFEvent, gameObject);
 			_lastBulletTime = Time.time;
 		}
 	}
 
-	System.Collections.IEnumerator MuzzleFlash()
+	private void DealDamage()
 	{
-		_muzzleLight.enabled = true;
-
-		yield return new WaitForSeconds(0.1f);
-		_muzzleLight.enabled = false;
-	}
-
-	private bool CanFire()
-	{
-		return Time.time - _lastBulletTime > 60 / _fireRate;
-	}
-
-	private void WeaponSway()
-	{
-		if (weaponSway) 
-		{
-			float movementX = Mathf.Clamp (-Input.GetAxis ("Mouse X") * swayAmount, -maxSwayAmount, maxSwayAmount);
-			float movementY = Mathf.Clamp (-Input.GetAxis ("Mouse Y") * swayAmount, -maxSwayAmount, maxSwayAmount);
-			
-			Vector3 finalSwayPosition = new Vector3(movementX, movementY, 0);
-			
-			transform.localPosition = Vector3.Lerp (transform.localPosition, finalSwayPosition + initialSwayPosition, Time.deltaTime * swaySmoothValue);
-		}
+		//var damageable = hit.collider.GetComponent<IDamageable>();
+		//
+		//if (damageable != null)
+		//	damageable.Damage(_damage);
 	}
 
 	public void Reload()
 	{
-		if(_currentAmmo != _magazineSize)
+		if (_currentAmmo != _magazineSize)
 		{
 			_currentAmmo = _magazineSize;
-			FMODUnity.RuntimeManager.PlayOneShotAttached(_reloadFEvent, gameObject);
-
 			_lastReloadTime = Time.time;
 		}
 	}
 
-	public bool isReloading()
+	private void SpawnBullet()
+	{
+		// Fire Bullet
+		GameObject bullet = Instantiate(_bulletPrefab, _bulletFireLocation.position, _bulletFireLocation.rotation);
+		bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * _bulletForce;
+
+		// Spawn Bullet Casings
+		GameObject casing = Instantiate(_bulletCasing, _bulletCasingLocation);
+		//casing.GetComponent<Rigidbody>().velocity = casing.transform.forward * _bulletCasingForce;
+	}
+
+	private bool CanFire()
+	{
+		return Time.time - _lastBulletTime < 60 / _fireRate;
+	}
+
+	private bool IsReloading()
 	{
 		return Time.time - _lastReloadTime < _reloadTime;
 	}

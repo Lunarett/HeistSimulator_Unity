@@ -6,8 +6,8 @@ namespace Assets.Scripts.AIPathfinding
 	public class AnimationAI : MonoBehaviour
 	{
 		[SerializeField] private NavMeshAgent _navMeshAgent;
-		[SerializeField] private Weapon _rifle;
-		[SerializeField] private Weapon _handgun;
+		[SerializeField] private OldWeapon _rifle;
+		[SerializeField] private OldWeapon _handgun;
 
 		[SerializeField] private Animator _animator;
 
