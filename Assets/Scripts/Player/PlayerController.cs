@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Photon.Pun;
 
 public enum EMovementStates
@@ -8,7 +9,8 @@ public enum EMovementStates
 	Walk,
 	Sprint,
 	Crouch,
-	Aim
+	AimIn,
+	AimOut
 }
 
 public class PlayerController : MonoBehaviour
@@ -16,6 +18,8 @@ public class PlayerController : MonoBehaviour
 	[Header("Mesh Properties")]
 	[SerializeField] private GameObject _fps;
 	[SerializeField] private GameObject _tps;
+	[Space]
+	[SerializeField] private Image _crosshair;
 
 	[Header("Movement Properties")]
 	[SerializeField] private float _walkSpeed = 3.0f;
@@ -102,17 +106,19 @@ public class PlayerController : MonoBehaviour
 			{
 				UpdateMovementState(EMovementStates.Idle);
 			}
-			else if(_movementState != EMovementStates.Aim)
+			else if(_movementState != EMovementStates.AimIn)
 			{
 				UpdateMovementState(EMovementStates.Walk);
 			}
 
+			Aim();
+			Reload();
 			Sprint();
-			Debug.Log(_movementState.ToString());
 			
 			Movement();
 			Look();
 			ShootWeapon();
+			Debug.Log(_movementState.ToString());
 
 		}
 	}
@@ -160,7 +166,7 @@ public class PlayerController : MonoBehaviour
 
 	private void Sprint()
 	{
-		if(_movementState != EMovementStates.Idle && _movementState != EMovementStates.Crouch && _movementState != EMovementStates.Aim)
+		if(_movementState != EMovementStates.Idle && _movementState != EMovementStates.Crouch && _movementState != EMovementStates.AimIn)
 		{
 			if (Input.GetButton("Sprint"))
 			{
@@ -198,6 +204,31 @@ public class PlayerController : MonoBehaviour
 		else if (Input.GetMouseButtonUp(0))
 		{
 			_weaponHandler.GetCurrentWeapon().EndFire();
+		}
+	}
+
+	private void Aim()
+	{
+		if(_movementState != EMovementStates.Sprint)
+		{
+			if(Input.GetMouseButton(1))
+			{
+				UpdateMovementState(EMovementStates.AimIn);
+				_crosshair.gameObject.SetActive(false);
+			}
+			else if(Input.GetMouseButtonUp(1))
+			{
+				UpdateMovementState(EMovementStates.AimOut);
+				_crosshair.gameObject.SetActive(true);
+			}
+		}
+	}
+
+	private void Reload()
+	{
+		if (Input.GetKey(KeyCode.R))
+		{
+			_weaponHandler.GetCurrentWeapon().Reload();
 		}
 	}
 

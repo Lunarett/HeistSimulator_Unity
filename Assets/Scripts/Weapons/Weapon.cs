@@ -24,6 +24,15 @@ public enum EWeaponType
 	Sniper3
 }
 
+public enum EScopeAttachments
+{
+	IronSights = -1,
+	Scope1 = 0,
+	Scope2 = 1,
+	Scope3 = 2,
+	Scope4 = 3
+}
+
 public class Weapon : MonoBehaviour
 {
 	[Header("Weapon Properties")]
@@ -48,7 +57,15 @@ public class Weapon : MonoBehaviour
 	[SerializeField] private GameObject _bulletCasing;
 	[Space]
 	[SerializeField] private float _bulletForce;
-	[SerializeField] private float _bulletCasingForce;
+
+	[Header("Weapon Attachments")]
+	[SerializeField] private EScopeAttachments _scopeAttachment;
+	[SerializeField] private bool silencer;
+	[Space]
+	[SerializeField] private List<GameObject> _scopeMesh;
+	[SerializeField] private List<GameObject> _scopeRenderer;
+
+	private Animator _animator;
 
 	private int _currentAmmo = 0;
 	private float _lastBulletTime = 10;
@@ -56,13 +73,25 @@ public class Weapon : MonoBehaviour
 
 	private bool _isFiring;
 
+	public Animator GetAnimator() => _animator;
+	public EScopeAttachments GetScopeAttachment() => _scopeAttachment;
 	public EWeaponType GetWeaponType() => _weaponType;
 	public string GetWeaponName() => _weaponName;
 	public int CurrentAmmo { get => _currentAmmo; }
 
+	public event System.Action OnFired;
+	public event System.Action OnReload;
+
+	private void Awake()
+	{
+		_animator = GetComponent<Animator>();
+	}
+
 	private void Start()
 	{
 		_currentAmmo = _magazineSize;
+
+		SetScope(_scopeAttachment);
 	}
 
 	protected virtual void Update()
@@ -93,7 +122,7 @@ public class Weapon : MonoBehaviour
 	{
 		if(_currentAmmo > 0)
 		{
-			Debug.Log("Weapon Shot");
+			OnFired?.Invoke();
 
 			_lastBulletTime = Time.time;
 			_currentAmmo--;
@@ -137,6 +166,7 @@ public class Weapon : MonoBehaviour
 	{
 		if (_currentAmmo != _magazineSize)
 		{
+			OnReload?.Invoke();
 			_currentAmmo = _magazineSize;
 			_lastReloadTime = Time.time;
 		}
@@ -155,11 +185,28 @@ public class Weapon : MonoBehaviour
 
 	private bool CanFire()
 	{
-		return Time.time - _lastBulletTime < 60 / _fireRate;
+		return Time.time - _lastBulletTime > 60 / _fireRate;
 	}
 
 	private bool IsReloading()
 	{
 		return Time.time - _lastReloadTime < _reloadTime;
+	}
+
+	public void SetScope(EScopeAttachments scope)
+	{
+		// Turn off all scope attachments
+		for (int i = 0; i < _scopeMesh.Count; i++)
+		{
+			_scopeMesh[i].SetActive(false);
+			_scopeRenderer[i].SetActive(false);
+		}
+
+		// activate selected scope attachment
+		if (scope != EScopeAttachments.IronSights)
+		{
+			_scopeMesh[(int)scope].SetActive(true);
+			_scopeRenderer[(int)scope].SetActive(true);
+		}
 	}
 }

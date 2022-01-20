@@ -12,7 +12,7 @@ public class PlayerWeaponHandler : MonoBehaviour
 
 	public Weapon GetCurrentWeapon() => _currentWeapon;
 
-	private void Start()
+	private void Awake()
 	{
 		LoadPrimary(EWeaponType.AK47);
 		LoadSecondary(EWeaponType.Glock17);

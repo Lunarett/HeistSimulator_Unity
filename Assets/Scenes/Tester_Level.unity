@@ -13967,6 +13967,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fps: {fileID: 894957191}
   _tps: {fileID: 1946434605}
+  _crosshair: {fileID: 1447907416}
   _walkSpeed: 3
   _sprintSpeed: 6
   _crouchSpeed: 1.5
@@ -13981,6 +13982,7 @@ MonoBehaviour:
   _locationMinSway: -0.03
   _locationMaxSway: 0.03
   _locationSwaySmooth: 4
+  MovementState: 0
 --- !u!114 &1470623976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18983,18 +18985,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7273894579517717111, guid: 71ab32ac86f211145a068bef1a9ed04d,
         type: 3}
+      propertyPath: _fireRate
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273894579517717111, guid: 71ab32ac86f211145a068bef1a9ed04d,
+        type: 3}
       propertyPath: _debugMode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7273894579517717111, guid: 71ab32ac86f211145a068bef1a9ed04d,
         type: 3}
       propertyPath: _singleFire
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7273894579517717111, guid: 71ab32ac86f211145a068bef1a9ed04d,
         type: 3}
       propertyPath: _bulletForce
       value: 291.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273894579517717111, guid: 71ab32ac86f211145a068bef1a9ed04d,
+        type: 3}
+      propertyPath: _scopeAttachment
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7273894579517717111, guid: 71ab32ac86f211145a068bef1a9ed04d,
         type: 3}
@@ -19408,7 +19420,10 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 0}
   _bulletCasing: {fileID: 0}
   _bulletForce: 0
-  _bulletCasingForce: 0
+  _scopeAttachment: 0
+  silencer: 0
+  _scopeMesh: []
+  _scopeRenderer: []
 --- !u!114 &1699961351 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5978989043144990129, guid: 8f9751f401ede35488d7662652e41af5,
