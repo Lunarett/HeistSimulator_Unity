@@ -60,27 +60,34 @@ public class Weapon : MonoBehaviour
 
 	[Header("Weapon Attachments")]
 	[SerializeField] private EScopeAttachments _scopeAttachment;
-	[SerializeField] private bool silencer;
+	[SerializeField] private bool _enableSilencer;
+	[SerializeField] private GameObject _silencer;
 	[Space]
 	[SerializeField] private List<GameObject> _scopeMesh;
 	[SerializeField] private List<GameObject> _scopeRenderer;
 
+	[Header("Weapon Effects")]
+	[SerializeField] private ParticleSystem _muzzleEffect;
+	[SerializeField] private Light _muzzleLight;
+	[SerializeField] private float _lightDuration = 0.02f;
+
 	private Animator _animator;
 
 	private int _currentAmmo = 0;
-	private float _lastBulletTime = 10;
+	private float _lastBulletTime;
 	private float _lastReloadTime;
 
 	private bool _isFiring;
 
-	public Animator GetAnimator() => _animator;
-	public EScopeAttachments GetScopeAttachment() => _scopeAttachment;
-	public EWeaponType GetWeaponType() => _weaponType;
-	public string GetWeaponName() => _weaponName;
+	public Animator WeaponAnimator { get => _animator; }
+	public EScopeAttachments ScopeAttachment { get => _scopeAttachment; }
+	public EWeaponType WeaponType { get => _weaponType; }
+	public string WeaponName { get => _weaponName; }
 	public int CurrentAmmo { get => _currentAmmo; }
+	public int MagazineSize { get => _magazineSize; }
 
-	public event System.Action OnFired;
-	public event System.Action OnReload;
+	public event System.Action<Animator> OnFired;
+	public event System.Action<Animator> OnReload;
 
 	private void Awake()
 	{
@@ -92,6 +99,11 @@ public class Weapon : MonoBehaviour
 		_currentAmmo = _magazineSize;
 
 		SetScope(_scopeAttachment);
+
+		if (_enableSilencer)
+			_silencer.SetActive(true);
+		else
+			_silencer.SetActive(false);
 	}
 
 	protected virtual void Update()
@@ -103,9 +115,6 @@ public class Weapon : MonoBehaviour
 	public void BeginFire()
 	{
 		_isFiring = true;
-
-		Debug.Log("CanFire is " + CanFire());
-		Debug.Log("Reloading is " + IsReloading());
 
 		if (_singleFire && !IsReloading() && CanFire())
 		{
@@ -120,16 +129,17 @@ public class Weapon : MonoBehaviour
 
 	private void Fire()
 	{
-		if(_currentAmmo > 0)
+		if (_currentAmmo > 0)
 		{
-			OnFired?.Invoke();
+			OnFired?.Invoke(_animator);
 
 			_lastBulletTime = Time.time;
 			_currentAmmo--;
 
 			SpawnBullet();
+			PlayEffects();
 
-			if(_useRaycastDamage)
+			if (_useRaycastDamage)
 			{
 				if (Physics.Raycast(_bulletFireLocation.position, _bulletFireLocation.forward, out RaycastHit hit, 1000))
 				{
@@ -166,7 +176,7 @@ public class Weapon : MonoBehaviour
 	{
 		if (_currentAmmo != _magazineSize)
 		{
-			OnReload?.Invoke();
+			OnReload?.Invoke(_animator);
 			_currentAmmo = _magazineSize;
 			_lastReloadTime = Time.time;
 		}
@@ -208,5 +218,21 @@ public class Weapon : MonoBehaviour
 			_scopeMesh[(int)scope].SetActive(true);
 			_scopeRenderer[(int)scope].SetActive(true);
 		}
+	}
+
+	private void PlayEffects()
+	{
+		if (!_enableSilencer)
+		{
+			_muzzleEffect.Emit(1);
+			StartCoroutine(MuzzleLight());
+		}
+	}
+
+	private IEnumerator MuzzleLight()
+	{
+		_muzzleLight.enabled = true;
+		yield return new WaitForSeconds(_lightDuration);
+		_muzzleLight.enabled = false;
 	}
 }

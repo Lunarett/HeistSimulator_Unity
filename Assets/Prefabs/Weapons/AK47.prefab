@@ -138,7 +138,7 @@ SkinnedMeshRenderer:
   - {fileID: 7593593110561542039}
   - {fileID: 7593562314770038009}
   - {fileID: 7593347787097938295}
-  - {fileID: 7593296636606960435}
+  - {fileID: 0}
   - {fileID: 7601781086821782685}
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 7601595855314230959}
@@ -256,7 +256,7 @@ SkinnedMeshRenderer:
   - {fileID: 7593593110561542039}
   - {fileID: 7593562314770038009}
   - {fileID: 7593347787097938295}
-  - {fileID: 7593296636606960435}
+  - {fileID: 0}
   - {fileID: 7601781086821782685}
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 7601595855314230959}
@@ -855,7 +855,7 @@ SkinnedMeshRenderer:
   - {fileID: 7593593110561542039}
   - {fileID: 7593562314770038009}
   - {fileID: 7593347787097938295}
-  - {fileID: 7593296636606960435}
+  - {fileID: 0}
   - {fileID: 7601781086821782685}
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 7601595855314230959}
@@ -5923,7 +5923,6 @@ Transform:
   - {fileID: 7601595855314230959}
   - {fileID: 7601820397953921111}
   - {fileID: 7593335028874076123}
-  - {fileID: 7593296636606960435}
   - {fileID: 7593562314770038009}
   - {fileID: 7593347787097938295}
   - {fileID: 7601781086821782685}
@@ -5963,80 +5962,6 @@ Transform:
   m_Father: {fileID: 7593487743573465943}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7595520232037546247
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7593551822425829843}
-  - component: {fileID: 7577290731491594005}
-  m_Layer: 8
-  m_Name: Main Camera
-  m_TagString: MainCamera
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7593551822425829843
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7595520232037546247}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7593296636606960435}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &7577290731491594005
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7595520232037546247}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.277952, g: 0.32141185, b: 0.3897059, a: 0.019607844}
-  m_projectionMatrixMode: 1
-  m_GateFitMode: 2
-  m_FOVAxisMode: 0
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.01
-  far clip plane: 1000
-  field of view: 55
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967039
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
 --- !u!1 &7595526000379882211
 GameObject:
   m_ObjectHideFlags: 0
@@ -11098,7 +11023,7 @@ Transform:
   - {fileID: 7593340944158110469}
   - {fileID: 7601826514701654729}
   m_Father: {fileID: 7593607147672639799}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7595581238876455493
 GameObject:
@@ -11213,7 +11138,8 @@ MonoBehaviour:
     type: 3}
   _bulletForce: 12.68
   _scopeAttachment: 3
-  silencer: 0
+  _enableSilencer: 0
+  _silencer: {fileID: 0}
   _scopeMesh:
   - {fileID: 7595321466878392193}
   - {fileID: 7595431056184218845}
@@ -11224,6 +11150,9 @@ MonoBehaviour:
   - {fileID: 7595476562145806143}
   - {fileID: 7595418536310530969}
   - {fileID: 7595353918433240597}
+  _muzzleEffect: {fileID: 0}
+  _muzzleLight: {fileID: 0}
+  _lightDuration: 0.02
 --- !u!1 &7595894850763909619
 GameObject:
   m_ObjectHideFlags: 0
@@ -11414,7 +11343,7 @@ SkinnedMeshRenderer:
   - {fileID: 7593593110561542039}
   - {fileID: 7593562314770038009}
   - {fileID: 7593347787097938295}
-  - {fileID: 7593296636606960435}
+  - {fileID: 0}
   - {fileID: 7601781086821782685}
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 7601595855314230959}
@@ -11452,37 +11381,6 @@ Transform:
   - {fileID: 7593609778146430195}
   m_Father: {fileID: 7593074712517723463}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7595945572419298279
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7593296636606960435}
-  m_Layer: 8
-  m_Name: camera
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7593296636606960435
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7595945572419298279}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.4671271e-16, y: 0.17866261, z: 1.0855757}
-  m_LocalScale: {x: 1, y: 0.99999994, z: 1}
-  m_Children:
-  - {fileID: 7593551822425829843}
-  m_Father: {fileID: 7593607147672639799}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7595956904314889429
 GameObject:
@@ -11592,7 +11490,7 @@ SkinnedMeshRenderer:
   - {fileID: 7593593110561542039}
   - {fileID: 7593562314770038009}
   - {fileID: 7593347787097938295}
-  - {fileID: 7593296636606960435}
+  - {fileID: 0}
   - {fileID: 7601781086821782685}
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 7601595855314230959}
@@ -11971,7 +11869,7 @@ SkinnedMeshRenderer:
   - {fileID: 7593593110561542039}
   - {fileID: 7593562314770038009}
   - {fileID: 7593347787097938295}
-  - {fileID: 7593296636606960435}
+  - {fileID: 0}
   - {fileID: 7601781086821782685}
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 7601595855314230959}
@@ -12099,7 +11997,7 @@ Transform:
   m_LocalScale: {x: 0.9999999, y: 0.9999991, z: 0.9999988}
   m_Children: []
   m_Father: {fileID: 7593607147672639799}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7596146917214926671
 GameObject:
@@ -12371,7 +12269,7 @@ SkinnedMeshRenderer:
   - {fileID: 7593593110561542039}
   - {fileID: 7593562314770038009}
   - {fileID: 7593347787097938295}
-  - {fileID: 7593296636606960435}
+  - {fileID: 0}
   - {fileID: 7601781086821782685}
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 7601595855314230959}
@@ -12437,7 +12335,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7593607147672639799}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7596237668086882127
 GameObject:
@@ -12547,7 +12445,7 @@ SkinnedMeshRenderer:
   - {fileID: 7593593110561542039}
   - {fileID: 7593562314770038009}
   - {fileID: 7593347787097938295}
-  - {fileID: 7593296636606960435}
+  - {fileID: 0}
   - {fileID: 7601781086821782685}
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 7601595855314230959}
@@ -12762,7 +12660,7 @@ SkinnedMeshRenderer:
   - {fileID: 7593593110561542039}
   - {fileID: 7593562314770038009}
   - {fileID: 7593347787097938295}
-  - {fileID: 7593296636606960435}
+  - {fileID: 0}
   - {fileID: 7601781086821782685}
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 7601595855314230959}
@@ -12878,7 +12776,7 @@ SkinnedMeshRenderer:
   - {fileID: 7593593110561542039}
   - {fileID: 7593562314770038009}
   - {fileID: 7593347787097938295}
-  - {fileID: 7593296636606960435}
+  - {fileID: 0}
   - {fileID: 7601781086821782685}
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 7601595855314230959}
@@ -12947,7 +12845,7 @@ Transform:
   m_LocalScale: {x: 1.0000001, y: 1.0000002, z: 1.0000006}
   m_Children: []
   m_Father: {fileID: 7593607147672639799}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7596401578423585829
 GameObject:
@@ -12977,7 +12875,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7593607147672639799}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7596422945652778005
 GameObject:
@@ -13087,7 +12985,7 @@ SkinnedMeshRenderer:
   - {fileID: 7593593110561542039}
   - {fileID: 7593562314770038009}
   - {fileID: 7593347787097938295}
-  - {fileID: 7593296636606960435}
+  - {fileID: 0}
   - {fileID: 7601781086821782685}
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 7601595855314230959}

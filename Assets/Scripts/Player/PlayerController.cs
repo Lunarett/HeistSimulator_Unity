@@ -111,6 +111,13 @@ public class PlayerController : MonoBehaviour
 				UpdateMovementState(EMovementStates.Walk);
 			}
 
+			if (Input.GetKeyDown(KeyCode.KeypadMinus))
+				Time.timeScale -= 0.1f;
+
+			if (Input.GetKeyDown(KeyCode.KeypadPlus))
+				Time.timeScale += 0.1f;
+
+
 			Aim();
 			Reload();
 			Sprint();
@@ -118,8 +125,6 @@ public class PlayerController : MonoBehaviour
 			Movement();
 			Look();
 			ShootWeapon();
-			Debug.Log(_movementState.ToString());
-
 		}
 	}
 
@@ -199,11 +204,11 @@ public class PlayerController : MonoBehaviour
 	{
 		if (_movementState != EMovementStates.Sprint && Input.GetMouseButtonDown(0))
 		{
-			_weaponHandler.GetCurrentWeapon().BeginFire();
+			_weaponHandler.CurrentWeapon.BeginFire();
 		}
 		else if (Input.GetMouseButtonUp(0))
 		{
-			_weaponHandler.GetCurrentWeapon().EndFire();
+			_weaponHandler.CurrentWeapon.EndFire();
 		}
 	}
 
@@ -228,7 +233,7 @@ public class PlayerController : MonoBehaviour
 	{
 		if (Input.GetKey(KeyCode.R))
 		{
-			_weaponHandler.GetCurrentWeapon().Reload();
+			_weaponHandler.CurrentWeapon.Reload();
 		}
 	}
 
