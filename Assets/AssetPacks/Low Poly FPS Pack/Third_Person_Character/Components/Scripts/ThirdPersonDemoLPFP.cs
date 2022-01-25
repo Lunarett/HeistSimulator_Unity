@@ -160,7 +160,7 @@ public class ThirdPersonDemoLPFP : MonoBehaviour {
 				shootAudioSource.Play ();
 
 				//Play from second layer, from the beginning
-				anim.Play ("Fire", 1, 0.0f);
+				anim.Play ("Fire_Rifle", 1, 0.0f);
 				//Play muzzleflash particles
 				muzzleflashParticles.Emit (1);
 				//Play light flash

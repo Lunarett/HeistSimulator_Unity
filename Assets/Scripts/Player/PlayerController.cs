@@ -96,7 +96,9 @@ public class PlayerController : MonoBehaviour
 
 	private void Update()
 	{
-		if(_photonView.IsMine)
+
+
+		if (_photonView.IsMine)
 		{
 			// Jump when Key is pressed
 			if (Input.GetButtonDown("Jump") && _characterController.isGrounded) Jump();
@@ -111,20 +113,12 @@ public class PlayerController : MonoBehaviour
 				UpdateMovementState(EMovementStates.Walk);
 			}
 
-			if (Input.GetKeyDown(KeyCode.KeypadMinus))
-				Time.timeScale -= 0.1f;
-
-			if (Input.GetKeyDown(KeyCode.KeypadPlus))
-				Time.timeScale += 0.1f;
-
-
-			Aim();
 			Reload();
 			Sprint();
-			
 			Movement();
-			Look();
 			ShootWeapon();
+			Aim();
+			Look();
 		}
 	}
 

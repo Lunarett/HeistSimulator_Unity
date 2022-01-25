@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public enum EWeaponType
 {
@@ -35,8 +36,11 @@ public enum EScopeAttachments
 
 public class Weapon : MonoBehaviour
 {
+	[SerializeField] private PhotonView _photonView;
+
 	[Header("Weapon Properties")]
 	[SerializeField] private EWeaponType _weaponType;
+	[SerializeField] private bool _isHandgun;
 	[Space]
 	[SerializeField] private string _weaponName = "Weapon";
 	[SerializeField] private bool _singleFire = false;
@@ -82,6 +86,7 @@ public class Weapon : MonoBehaviour
 	public Animator WeaponAnimator { get => _animator; }
 	public EScopeAttachments ScopeAttachment { get => _scopeAttachment; }
 	public EWeaponType WeaponType { get => _weaponType; }
+	public bool IsHandgun { get => _isHandgun; }
 	public string WeaponName { get => _weaponName; }
 	public int CurrentAmmo { get => _currentAmmo; }
 	public int MagazineSize { get => _magazineSize; }
@@ -118,7 +123,14 @@ public class Weapon : MonoBehaviour
 
 		if (_singleFire && !IsReloading() && CanFire())
 		{
-			Fire();
+			if(PhotonNetwork.OfflineMode)
+			{
+				Fire();
+			}
+			else
+			{
+				_photonView.RPC("RPC_Fire", RpcTarget.All);
+			}
 		}
 	}
 
@@ -162,6 +174,12 @@ public class Weapon : MonoBehaviour
 		{
 			_lastBulletTime = Time.time;
 		}
+	}
+
+	[PunRPC]
+	private void RPC_Fire()
+	{
+		Fire();
 	}
 
 	private void DealDamage()
