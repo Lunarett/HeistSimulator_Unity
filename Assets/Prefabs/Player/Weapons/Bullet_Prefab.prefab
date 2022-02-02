@@ -63,10 +63,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 15
-  m_Height: 270.4
+  m_Radius: 5.316128
+  m_Height: 14.435917
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 107.79}
+  m_Center: {x: -3.969127, y: -5.7147384, z: 3.0672555}
 --- !u!96 &96448838451407516
 TrailRenderer:
   serializedVersion: 2
@@ -186,6 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd6303490c4a246438f06dddf7998660, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lifetime: 0.7
   _damageLayerMask:
     serializedVersion: 2
     m_Bits: 0

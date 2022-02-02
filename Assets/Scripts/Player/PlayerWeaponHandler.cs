@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,10 +6,14 @@ using UnityEngine;
 public class PlayerWeaponHandler : MonoBehaviour
 {
 	[SerializeField] private List<Weapon> _weaponList;
+	[SerializeField] private GameObject _grenadePrefab;
+	[SerializeField] private Transform _grenadeSpawnPoint;
+	[SerializeField] private float _duration = 0.2f;
 
 	private Weapon _primaryWeapon;
 	private Weapon _secondaryWeapon;
 	private Weapon _currentWeapon;
+	private PlayerController _playerController;
 
 	public Weapon PrimaryWeapon { get => _primaryWeapon; }
 	public Weapon SecondaryWeapon { get => _secondaryWeapon; }
@@ -18,10 +23,25 @@ public class PlayerWeaponHandler : MonoBehaviour
 
 	private void Awake()
 	{
+		_playerController = GetComponent<PlayerController>();
+
+		_playerController.OnGrenadeThrow += ThrowGrenade;
+
 		LoadPrimary(EWeaponType.AK47);
 		LoadSecondary(EWeaponType.Glock17);
 
 		Primary();
+	}
+
+	private void ThrowGrenade()
+	{
+		StartCoroutine(Delay(_duration));
+	}
+
+	IEnumerator Delay(float duration)
+	{
+		yield return new WaitForSeconds(duration);
+		Instantiate(_grenadePrefab, _grenadeSpawnPoint.position, _grenadeSpawnPoint.rotation);
 	}
 
 	private void Update()

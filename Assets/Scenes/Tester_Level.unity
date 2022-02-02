@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &17049799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,6 +168,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &223195192 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 94530831674174105, guid: c6b87f8eb3a9cb94cbab872745d22195,
+    type: 3}
+  m_PrefabInstance: {fileID: 1649145837}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &394890914
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,7 +188,7 @@ GameObject:
   - component: {fileID: 394890915}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -277,7 +283,7 @@ GameObject:
   - component: {fileID: 594043453}
   m_Layer: 0
   m_Name: Cube (4)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -358,6 +364,12 @@ Transform:
   m_Father: {fileID: 1846783425}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
+--- !u!4 &617638313 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7507439755181575367, guid: c6b87f8eb3a9cb94cbab872745d22195,
+    type: 3}
+  m_PrefabInstance: {fileID: 1649145837}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,7 +477,7 @@ GameObject:
   - component: {fileID: 781701143}
   m_Layer: 3
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -560,7 +572,7 @@ GameObject:
   - component: {fileID: 846460400}
   m_Layer: 3
   m_Name: Cube (5)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -655,7 +667,7 @@ GameObject:
   - component: {fileID: 1460227088}
   m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -743,6 +755,47 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 94530830313702247, guid: c6b87f8eb3a9cb94cbab872745d22195,
+        type: 3}
+      propertyPath: _grenadePrefab
+      value: 
+      objectReference: {fileID: 1948591290861370, guid: 7b04fe350ed10a741a1e245447860d9e,
+        type: 3}
+    - target: {fileID: 94530830313702247, guid: c6b87f8eb3a9cb94cbab872745d22195,
+        type: 3}
+      propertyPath: _grenadeSpawnPoint
+      value: 
+      objectReference: {fileID: 617638313}
+    - target: {fileID: 94530830313702249, guid: c6b87f8eb3a9cb94cbab872745d22195,
+        type: 3}
+      propertyPath: _fpsCamera
+      value: 
+      objectReference: {fileID: 223195192}
+    - target: {fileID: 94530830313702249, guid: c6b87f8eb3a9cb94cbab872745d22195,
+        type: 3}
+      propertyPath: _gunCamera
+      value: 
+      objectReference: {fileID: 1799809421}
+    - target: {fileID: 94530830313702249, guid: c6b87f8eb3a9cb94cbab872745d22195,
+        type: 3}
+      propertyPath: _fpsAimInFOV
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 94530830313702249, guid: c6b87f8eb3a9cb94cbab872745d22195,
+        type: 3}
+      propertyPath: _gunAimInFOV
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 94530830313702249, guid: c6b87f8eb3a9cb94cbab872745d22195,
+        type: 3}
+      propertyPath: _fpsAimSmoothAmount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 94530830313702249, guid: c6b87f8eb3a9cb94cbab872745d22195,
+        type: 3}
+      propertyPath: _gunAimSmoothAmount
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 94530830313702250, guid: c6b87f8eb3a9cb94cbab872745d22195,
         type: 3}
       propertyPath: m_RootOrder
@@ -811,10 +864,86 @@ PrefabInstance:
     - target: {fileID: 94530830313702253, guid: c6b87f8eb3a9cb94cbab872745d22195,
         type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 94530830399423594, guid: c6b87f8eb3a9cb94cbab872745d22195,
+        type: 3}
+      propertyPath: _debugMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 94530830399423594, guid: c6b87f8eb3a9cb94cbab872745d22195,
+        type: 3}
+      propertyPath: _photonView
+      value: 
+      objectReference: {fileID: 2124952689}
+    - target: {fileID: 94530830399423594, guid: c6b87f8eb3a9cb94cbab872745d22195,
+        type: 3}
+      propertyPath: _useRaycastDamage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 94530831674174105, guid: c6b87f8eb3a9cb94cbab872745d22195,
+        type: 3}
+      propertyPath: field of view
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 94530831674174107, guid: c6b87f8eb3a9cb94cbab872745d22195,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.071
+      objectReference: {fileID: 0}
+    - target: {fileID: 94530831674174107, guid: c6b87f8eb3a9cb94cbab872745d22195,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.063
+      objectReference: {fileID: 0}
+    - target: {fileID: 94530831969404166, guid: c6b87f8eb3a9cb94cbab872745d22195,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.182
+      objectReference: {fileID: 0}
+    - target: {fileID: 94530832038541802, guid: c6b87f8eb3a9cb94cbab872745d22195,
+        type: 3}
+      propertyPath: field of view
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7331235528178390087, guid: c6b87f8eb3a9cb94cbab872745d22195,
+        type: 3}
+      propertyPath: _debugMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7331235528178390087, guid: c6b87f8eb3a9cb94cbab872745d22195,
+        type: 3}
+      propertyPath: _autoReload
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7331235528178390087, guid: c6b87f8eb3a9cb94cbab872745d22195,
+        type: 3}
+      propertyPath: _photonView
+      value: 
+      objectReference: {fileID: 2124952689}
+    - target: {fileID: 7331235528178390087, guid: c6b87f8eb3a9cb94cbab872745d22195,
+        type: 3}
+      propertyPath: _scopeAttachment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7331235528178390087, guid: c6b87f8eb3a9cb94cbab872745d22195,
+        type: 3}
+      propertyPath: _useRaycastDamage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7504862264595131907, guid: c6b87f8eb3a9cb94cbab872745d22195,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6b87f8eb3a9cb94cbab872745d22195, type: 3}
+--- !u!20 &1799809421 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 94530832038541802, guid: c6b87f8eb3a9cb94cbab872745d22195,
+    type: 3}
+  m_PrefabInstance: {fileID: 1649145837}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1846783424
 GameObject:
   m_ObjectHideFlags: 0
@@ -826,7 +955,7 @@ GameObject:
   - component: {fileID: 1846783425}
   m_Layer: 0
   m_Name: Evironment
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -866,7 +995,7 @@ GameObject:
   - component: {fileID: 1955738481}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -947,3 +1076,15 @@ Transform:
   m_Father: {fileID: 1846783425}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &2124952689 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 94530830313702251, guid: c6b87f8eb3a9cb94cbab872745d22195,
+    type: 3}
+  m_PrefabInstance: {fileID: 1649145837}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

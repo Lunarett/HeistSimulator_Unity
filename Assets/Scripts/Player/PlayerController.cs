@@ -27,9 +27,10 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private float _crouchSpeed = 1.5f;
 	[SerializeField] private float _jumpForce = 3.0f;
 	[SerializeField] private bool _toggleSprint = false;
-	
+
 	[Header("Camera Properties")]
-	[SerializeField] private Camera _camera;
+	[SerializeField] private Camera _fpsCamera;
+	[SerializeField] private Camera _gunCamera;
 	[Space]
 	[SerializeField] private float _sensitivity = 100.0f;
 	[SerializeField] private float _viewingRangeMin = -90.0f;
@@ -44,16 +45,26 @@ public class PlayerController : MonoBehaviour
 	[Space]
 	[SerializeField] private float _locationSwaySmooth = 4.0f;
 
+	[Header("Aim Settings")]
+	[SerializeField] private float _fpsAimInFOV = 35;
+	[SerializeField] private float _gunAimInFOV = 35;
+	[SerializeField] private float _fpsAimSmoothAmount = 2;
+	[SerializeField] private float _gunAimSmoothAmount = 2;
+
 	private EMovementStates _movementState;
 
 	private Vector3 _velocity = Vector3.zero;
 	private Vector3 _initSwayPos;
 	private Vector3 _initSwayRot;
-	
+
 	private const float _gravity = 9.81f;
 	private float _currentSpeed = 0.0f;
 	private float _yaw = 0.0f;
 	private float _pitch = 0.0f;
+	private float _lastKnifeAttack;
+	private float _lastGrenadeThrow;
+	private float _fpsCamInitFOV;
+	private float _gunCamInitFOV;
 
 	private PhotonView _photonView;
 	private PlayerWeaponHandler _weaponHandler;
@@ -62,6 +73,8 @@ public class PlayerController : MonoBehaviour
 	public EMovementStates MovementState;
 
 	public event System.Action<EMovementStates> OnAnimUpdate;
+	public event System.Action OnKnifeAttack;
+	public event System.Action OnGrenadeThrow;
 
 	private void Awake()
 	{
@@ -72,20 +85,22 @@ public class PlayerController : MonoBehaviour
 
 	private void Start()
 	{
+		_fpsCamInitFOV = _fpsCamera.fieldOfView;
+		_gunCamInitFOV = _gunCamera.fieldOfView;
 
-		if(_photonView.IsMine)
+		if (_photonView.IsMine)
 		{
 			_fps.SetActive(true);
 			_tps.SetActive(false);
 
 			Cursor.lockState = CursorLockMode.Locked;
-			
+
 			_initSwayPos = _swayObject.transform.localPosition;
 			_initSwayRot = _swayObject.transform.eulerAngles;
 
 			_currentSpeed = _walkSpeed;
-			_pitch = _camera.transform.rotation.y;
-			_yaw = _camera.transform.rotation.x;
+			_pitch = _gunCamera.transform.rotation.y;
+			_yaw = _gunCamera.transform.rotation.x;
 		}
 		else
 		{
@@ -108,7 +123,7 @@ public class PlayerController : MonoBehaviour
 			{
 				UpdateMovementState(EMovementStates.Idle);
 			}
-			else if(_movementState != EMovementStates.AimIn)
+			else if (_movementState != EMovementStates.AimIn)
 			{
 				UpdateMovementState(EMovementStates.Walk);
 			}
@@ -117,6 +132,8 @@ public class PlayerController : MonoBehaviour
 			Sprint();
 			Movement();
 			ShootWeapon();
+			KnifeAttack();
+			GrenadeThrow();
 			Aim();
 			Look();
 		}
@@ -124,7 +141,7 @@ public class PlayerController : MonoBehaviour
 
 	private void LateUpdate()
 	{
-		if(_photonView.IsMine)
+		if (_photonView.IsMine)
 		{
 			Sway();
 		}
@@ -165,7 +182,7 @@ public class PlayerController : MonoBehaviour
 
 	private void Sprint()
 	{
-		if(_movementState != EMovementStates.Idle && _movementState != EMovementStates.Crouch && _movementState != EMovementStates.AimIn)
+		if (_movementState != EMovementStates.Idle && _movementState != EMovementStates.Crouch && _movementState != EMovementStates.AimIn)
 		{
 			if (Input.GetButton("Sprint"))
 			{
@@ -182,16 +199,24 @@ public class PlayerController : MonoBehaviour
 
 	private void Sway()
 	{
+		if(_movementState == EMovementStates.AimIn)
+		{
+			_locationMinSway = -0.005f;
+			_locationMaxSway = 0.005f;
+			_locationSwaySmooth = 4;
+		}
+		else
+		{
+			_locationMinSway = -0.03f;
+			_locationMaxSway = 0.03f;
+			_locationSwaySmooth = 4;
+		}
+
 		float locMovX = Mathf.Clamp(-Input.GetAxis("Mouse X") * _locationSwayAmount, _locationMinSway, _locationMaxSway);
 		float locMovY = Mathf.Clamp(-Input.GetAxis("Mouse Y") * _locationSwayAmount, _locationMinSway, _locationMaxSway);
 
-		//float RotMovX = Mathf.Clamp(-Input.GetAxis("Mouse X") * _rotationSwayAmount, _rotationMinSway, _rotationMaxSway);
-		//float RotMovY = Mathf.Clamp(-Input.GetAxis("Mouse Y") * _rotationSwayAmount, _rotationMinSway, _rotationMaxSway);
-
 		Vector3 newLocation = new Vector3(locMovX, locMovY, 0);
-
 		_swayObject.localPosition = Vector3.Lerp(_swayObject.localPosition, newLocation + _initSwayPos, Time.deltaTime * _locationSwaySmooth);
-		//_swayObject.localEulerAngles = Vector3.Lerp(_swayObject.localEulerAngles, newRotation + _initSwayRot, Time.deltaTime * _rotationSwaySmooth);
 	}
 
 	private void ShootWeapon()
@@ -208,16 +233,24 @@ public class PlayerController : MonoBehaviour
 
 	private void Aim()
 	{
-		if(_movementState != EMovementStates.Sprint)
+		if (_movementState != EMovementStates.Sprint)
 		{
-			if(Input.GetMouseButton(1))
+			if (Input.GetMouseButton(1))
 			{
 				UpdateMovementState(EMovementStates.AimIn);
+
+				_fpsCamera.fieldOfView = Mathf.Lerp(_fpsCamera.fieldOfView, _fpsAimInFOV, _fpsAimSmoothAmount * Time.deltaTime);
+				_gunCamera.fieldOfView = Mathf.Lerp(_gunCamera.fieldOfView, _gunAimInFOV, _gunAimSmoothAmount * Time.deltaTime);
+
 				_crosshair.gameObject.SetActive(false);
 			}
-			else if(Input.GetMouseButtonUp(1))
+			else if (Input.GetMouseButtonUp(1))
 			{
 				UpdateMovementState(EMovementStates.AimOut);
+
+				_fpsCamera.fieldOfView = Mathf.Lerp(_fpsCamera.fieldOfView, _fpsCamInitFOV, 100 * Time.deltaTime);
+				_gunCamera.fieldOfView = Mathf.Lerp(_gunCamera.fieldOfView, _gunCamInitFOV, 100 * Time.deltaTime);
+
 				_crosshair.gameObject.SetActive(true);
 			}
 		}
@@ -228,6 +261,24 @@ public class PlayerController : MonoBehaviour
 		if (Input.GetKey(KeyCode.R))
 		{
 			_weaponHandler.CurrentWeapon.Reload();
+		}
+	}
+
+	private void KnifeAttack()
+	{
+		if (Input.GetKeyDown(KeyCode.F) && Time.time - _lastKnifeAttack > 60 / 60)
+		{
+			_lastKnifeAttack = Time.time;
+			OnKnifeAttack?.Invoke();
+		}
+	}
+
+	private void GrenadeThrow()
+	{
+		if (Input.GetKeyDown(KeyCode.G) && Time.time - _lastGrenadeThrow > 60 / 50)
+		{
+			_lastGrenadeThrow = Time.time;
+			OnGrenadeThrow?.Invoke();
 		}
 	}
 

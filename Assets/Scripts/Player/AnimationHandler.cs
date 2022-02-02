@@ -34,8 +34,21 @@ public class AnimationHandler : MonoBehaviour
 			_weaponHandler.PrimaryWeapon.OnReload += OnReload;
 			_weaponHandler.SecondaryWeapon.OnReload += OnReload;
 
+			_playerController.OnKnifeAttack += KnifeAttack;
+			_playerController.OnGrenadeThrow += GrenadeThrow;
+
 			_anim = _weaponHandler.CurrentWeapon.WeaponAnimator;
 		}
+	}
+
+	private void GrenadeThrow()
+	{
+		_anim.Play("GrenadeThrow", 0, 0);
+	}
+
+	private void KnifeAttack()
+	{
+		_anim.Play("Knife Attack 2", 0, 0);
 	}
 
 	private void Update()
